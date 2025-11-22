@@ -3,6 +3,12 @@
 { 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 14d";
+  };
+
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
@@ -53,6 +59,16 @@
   #   enableSSHSupport = true;
   # };
 
+  programs.bash = {
+   enable = true;
+   interactiveShellInit = ''
+    if [[ $(${pkgs.procps}/bin/ps --no-header --pid=$PPID --format=comm) != "fish" && -z ''${BASH_EXECUTION_STRING} ]]
+    then
+      shopt -q login_shell && LOGIN_OPTION='--login' || LOGIN_OPTION=""
+      exec ${pkgs.fish}/bin/fish $LOGIN_OPTION
+    fi
+   '';
+  };
 
   programs.hyprland.enable = true;
   services.xserver.enable = true;
@@ -71,6 +87,14 @@
   };
 
   services.openssh.enable = true;
+
+  virtualisation.docker = {
+    enable = true;
+    rootless = {
+     enable = true;
+     setSocketVariable = true;
+    };
+  };
 
   system.stateVersion = vars.homeStateVersion;
 }
