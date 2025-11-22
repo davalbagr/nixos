@@ -84,7 +84,11 @@
     '';
   };
 
-  programs.hyprland.enable = true;
+  programs.hyprland = {
+	  enable = true;
+	  withUWSM = true;
+  };
+
   services.xserver.enable = true;
   services.xserver.desktopManager.session = [
     {
@@ -118,6 +122,9 @@
     };
   };
 
+  environment.loginShellInit = ''
+    hyprland
+  '';
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
   system.stateVersion = vars.homeStateVersion;

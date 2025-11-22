@@ -15,6 +15,7 @@
     pkgs.brave
     pkgs.heroku
     pkgs.neovim
+    pkgs.any-nix-shell
   ];
 
   programs.home-manager.enable = true;
@@ -36,6 +37,10 @@
     interactiveShellInit = ''
       set fish_greeting
       ${pkgs.any-nix-shell}/bin/any-nix-shell fish --info-right | source
+
+      if uwsm check may-start
+        exec uwsm start hyprland-uwsm.desktop
+      end
     '';
 
     shellAliases = {
@@ -78,6 +83,7 @@
 
   wayland.windowManager.hyprland = {
     enable = true;
+    systemd.enable = false;
     settings = {
       monitor = "QEMU Monitor, 2160x1440@144, 0x0, 1";
 
