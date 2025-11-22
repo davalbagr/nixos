@@ -14,7 +14,6 @@
     pkgs.ghostty
     pkgs.brave
     pkgs.heroku
-    pkgs.neovim
     pkgs.any-nix-shell
     pkgs.nixfmt-rfc-style
   ];

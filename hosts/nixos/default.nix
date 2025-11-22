@@ -89,6 +89,13 @@
     withUWSM = true;
   };
 
+  programs.nixvim = {
+    enable = true;
+    viAlias = true;
+    vimAlias = true;
+    defaultEditor = true;
+  };
+
   services.xserver.enable = true;
   services.xserver.desktopManager.session = [
     {
