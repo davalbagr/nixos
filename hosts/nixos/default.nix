@@ -40,7 +40,6 @@
 
   users.users.${vars.username} = {
     isNormalUser = true;
-    description = "David Agra";
     extraGroups = [ "networkmanager" "wheel" ];
   };
 
