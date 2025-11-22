@@ -94,6 +94,7 @@
       '';
     }
   ];
+  services.xserver.displayManager.lightdm.enable = false;
 
   home-manager = {
     users.${vars.username} = import ../../home.nix {
@@ -116,6 +117,8 @@
       setSocketVariable = true;
     };
   };
+
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
   system.stateVersion = vars.homeStateVersion;
 }
