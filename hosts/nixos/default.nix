@@ -95,6 +95,7 @@
     vimAlias = true;
     defaultEditor = true;
     colorschemes.rose-pine.enable = true;
+    dependencies.tree-sitter.enable = true;
 
     opts = {
       number = true;
@@ -102,10 +103,17 @@
       shiftwidth = 2;
     };
 
+    lsp.servers = {
+      ruby_lsp.enable = true;
+      nixd.enable = true;
+      tailwindcss.enable = true;
+    };
+
     plugins = {
       snacks.enable = true;
       flash.enable = true;
       lualine.enable = true;
+      oil.enable = true;
     };
   };
 
