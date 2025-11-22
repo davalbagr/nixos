@@ -85,8 +85,8 @@
   };
 
   programs.hyprland = {
-	  enable = true;
-	  withUWSM = true;
+    enable = true;
+    withUWSM = true;
   };
 
   services.xserver.enable = true;

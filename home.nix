@@ -16,16 +16,21 @@
     pkgs.heroku
     pkgs.neovim
     pkgs.any-nix-shell
+    pkgs.nixfmt-rfc-style
   ];
 
   programs.home-manager.enable = true;
-  programs.zoxide.enable = true;
   programs.ripgrep.enable = true;
   programs.yazi.enable = true;
   programs.eza.enable = true;
   programs.fd.enable = true;
   programs.rofi.enable = true;
   programs.lazydocker.enable = true;
+
+  programs.zoxide = {
+    enable = true;
+    enableFishIntegration = true;
+  };
 
   programs.starship = {
     enable = true;
