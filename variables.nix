@@ -8,7 +8,8 @@ let
 
   homeStateVersion = "25.05";
   nixpkgsBranch = "nixos-unstable";
-in {
+in
+{
   inherit
     username
     gitUserEmail
@@ -16,5 +17,6 @@ in {
     hostname
     system
     homeStateVersion
-    nixpkgsBranch;
+    nixpkgsBranch
+    ;
 }

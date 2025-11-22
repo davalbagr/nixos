@@ -5,38 +5,44 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     home-manager = {
-    	url = "github:nix-community/home-manager";
-	inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, ... }:
-  let
+  outputs =
+    inputs@{
+      self,
+      nixpkgs,
+      home-manager,
+      ...
+    }:
+    let
 
-    vars = import ./variables.nix;
+      vars = import ./variables.nix;
 
-    pkgs = import nixpkgs {
-      system = vars.system;
-      config.allowUnfree = true;
-    };
-
-  in
-  {
-    nixosConfigurations.${vars.hostname} = nixpkgs.lib.nixosSystem {
-      system = vars.system;
-
-      specialArgs = {
-        inherit inputs pkgs vars;
-	configDir = self;
+      pkgs = import nixpkgs {
+        system = vars.system;
+        config.allowUnfree = true;
       };
 
-      modules = [
-        home-manager.nixosModules.default
+    in
+    {
+      nixosConfigurations.${vars.hostname} = nixpkgs.lib.nixosSystem {
+        system = vars.system;
 
-	./hosts/${vars.hostname}/default.nix
+        specialArgs = {
+          inherit inputs vars;
+          configDir = self;
+        };
 
-	./hosts/${vars.hostname}/hardware-configuration.nix
-      ];
+        modules = [
+          home-manager.nixosModules.default
+
+          ./hosts/${vars.hostname}/default.nix
+
+          ./hosts/${vars.hostname}/hardware-configuration.nix
+        ];
+      };
     };
-  };
 }

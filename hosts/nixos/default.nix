@@ -1,13 +1,25 @@
-{ config, pkgs, inputs, vars, ... }:
+{
+  config,
+  pkgs,
+  inputs,
+  vars,
+  ...
+}:
 
-{ 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+{
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   nix.gc = {
     automatic = true;
     dates = "weekly";
     options = "--delete-older-than 14d";
+    persistent = true;
   };
+
+  nix.settings.auto-optimise-store = true;
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -40,7 +52,10 @@
 
   users.users.${vars.username} = {
     isNormalUser = true;
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+    ];
   };
 
   services.getty.autologinUser = vars.username;
@@ -59,30 +74,37 @@
   # };
 
   programs.bash = {
-   enable = true;
-   interactiveShellInit = ''
-    if [[ $(${pkgs.procps}/bin/ps --no-header --pid=$PPID --format=comm) != "fish" && -z ''${BASH_EXECUTION_STRING} ]]
-    then
-      shopt -q login_shell && LOGIN_OPTION='--login' || LOGIN_OPTION=""
-      exec ${pkgs.fish}/bin/fish $LOGIN_OPTION
-    fi
-   '';
+    enable = true;
+    interactiveShellInit = ''
+      if [[ $(${pkgs.procps}/bin/ps --no-header --pid=$PPID --format=comm) != "fish" && -z ''${BASH_EXECUTION_STRING} ]]
+      then
+        shopt -q login_shell && LOGIN_OPTION='--login' || LOGIN_OPTION=""
+        exec ${pkgs.fish}/bin/fish $LOGIN_OPTION
+      fi
+    '';
   };
 
   programs.hyprland.enable = true;
   services.xserver.enable = true;
-  services.xserver.desktopManager.session = [{
-    name = "hyprland";
-    start = ''
-     ${pkgs.hyprland}/bin/Hyprland
-    '';
-  }];
+  services.xserver.desktopManager.session = [
+    {
+      name = "hyprland";
+      start = ''
+        ${pkgs.hyprland}/bin/Hyprland
+      '';
+    }
+  ];
 
   home-manager = {
-     users.${vars.username} = import ../../home.nix {
-      inherit config pkgs inputs vars;
-     };
-     extraSpecialArgs = { inherit inputs vars; };
+    users.${vars.username} = import ../../home.nix {
+      inherit
+        config
+        pkgs
+        inputs
+        vars
+        ;
+    };
+    extraSpecialArgs = { inherit inputs vars; };
   };
 
   services.openssh.enable = true;
@@ -90,8 +112,8 @@
   virtualisation.docker = {
     enable = true;
     rootless = {
-     enable = true;
-     setSocketVariable = true;
+      enable = true;
+      setSocketVariable = true;
     };
   };
 

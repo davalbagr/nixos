@@ -1,4 +1,10 @@
-{ config, pkgs, inputs, vars, ... }:
+{
+  config,
+  pkgs,
+  inputs,
+  vars,
+  ...
+}:
 
 {
   home.stateVersion = vars.homeStateVersion;
@@ -8,6 +14,7 @@
     pkgs.ghostty
     pkgs.brave
     pkgs.heroku
+    pkgs.neovim
   ];
 
   programs.home-manager.enable = true;
@@ -25,41 +32,43 @@
   };
 
   programs.fish = {
-   enable = true;
-   interactiveShellInit = ''
-   '';
+    enable = true;
+    interactiveShellInit = ''
+      set fish_greeting
+      ${pkgs.any-nix-shell}/bin/any-nix-shell fish --info-right | source
+    '';
 
-   shellAliases = {
-    n = "nvim";
-    rebuild = "sudo nixos-rebuild switch --flake ~/.config/nixos#$(hostname)";
-    lzd = "lazydocker";
-    lzg = "lazygit";
-    r = "rails";
-    hrc = "heroku run console";
-    g = "git";
-    cl = "clear";
-    ls = "eza -lh --group-directories-first --icons";
-   };
+    shellAliases = {
+      n = "nvim";
+      rebuild = "sudo nixos-rebuild switch --flake ~/.config/nixos#$(hostname)";
+      lzd = "lazydocker";
+      lzg = "lazygit";
+      r = "rails";
+      hrc = "heroku run console";
+      g = "git";
+      cl = "clear";
+      ls = "eza -lh --group-directories-first --icons";
+    };
   };
 
   services.ssh-agent.enable = true;
   programs.ssh = {
-     enable = true;
-     extraConfig = ''
-       AddKeysToAgent yes
-     '';
+    enable = true;
+    extraConfig = ''
+      AddKeysToAgent yes
+    '';
   };
 
   programs.git = {
-   enable = true;
-   settings = {
-     user = {
-      email = vars.gitUserEmail;
-      username = vars.gitUserName;
-     };
-     init.defaultBranch = "main";
-     pull.rebase = true;
-   };
+    enable = true;
+    settings = {
+      user = {
+        email = vars.gitUserEmail;
+        name = vars.gitUserName;
+      };
+      init.defaultBranch = "main";
+      pull.rebase = true;
+    };
   };
 
   programs.lazygit = {
@@ -68,20 +77,16 @@
   };
 
   wayland.windowManager.hyprland = {
-   enable = true;
-   settings = {
-	   monitor = "QEMU Monitor, 2160x1440@144, 0x0, 1";
-
-	   "$mod" = "SUPER";
-	   bind = [
-	    "$mod, RETURN, exec, ghostty"
-	    "$mod, SPACE, exec, rofi -show drun"
-	   ];
-   };
-  };
-
-  programs.neovim = {
     enable = true;
+    settings = {
+      monitor = "QEMU Monitor, 2160x1440@144, 0x0, 1";
+
+      "$mod" = "SUPER";
+      bind = [
+        "$mod, RETURN, exec, ghostty"
+        "$mod, SPACE, exec, rofi -show drun"
+      ];
+    };
   };
 
   xdg.configFile."ghostty/config".text = ''
