@@ -44,7 +44,7 @@
 
         modules = [
           home-manager.nixosModules.default
-	  nixvim.nixosModules.nixvim
+          nixvim.nixosModules.nixvim
 
           ./hosts/${vars.hostname}/default.nix
 

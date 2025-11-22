@@ -94,6 +94,19 @@
     viAlias = true;
     vimAlias = true;
     defaultEditor = true;
+    colorschemes.rose-pine.enable = true;
+
+    opts = {
+      number = true;
+      relativenumber = true;
+      shiftwidth = 2;
+    };
+
+    plugins = {
+      snacks.enable = true;
+      flash.enable = true;
+      lualine.enable = true;
+    };
   };
 
   services.xserver.enable = true;
