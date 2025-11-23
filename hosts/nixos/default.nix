@@ -60,6 +60,7 @@
 
   environment.systemPackages = with pkgs; [
     nh
+    nerd-fonts.jetbrains-mono
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -89,12 +90,7 @@
 
     nvf = {
       enable = true;
-      settings = import ../../nvf.nix {
-        inherit
-          pkgs
-          vars
-          ;
-      };
+      settings = import ../../nvf.nix {};
     };
   };
 
@@ -105,6 +101,22 @@
       package = pkgs.rose-pine-cursor;
       name = "rose-pine-cursor";
       size = 14;
+    };
+    fonts = {
+      serif = {
+        package = pkgs.nerd-fonts.jetbrains-mono;
+        name = "nerd-fonts-jetbrains-mono";
+      };
+
+      sansSerif = {
+        package = pkgs.nerd-fonts.jetbrains-mono;
+        name = "nerd-fonts-jetbrains-mono";
+      };
+
+      monospace = {
+        package = pkgs.nerd-fonts.jetbrains-mono;
+        name = "nerd-fonts-jetbrains-mono";
+      };
     };
     base16Scheme = {
       slug = "rose-pine";

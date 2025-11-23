@@ -1,8 +1,4 @@
-{
-  pkgs,
-  vars,
-  ...
-}: {
+_: {
   vim = {
     viAlias = true;
     vimAlias = true;

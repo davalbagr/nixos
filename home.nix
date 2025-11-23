@@ -22,53 +22,24 @@
 
   programs = {
     home-manager.enable = true;
+    git.enable = true;
+    starship.enable = true;
+    lazygit.enable = true;
+    ssh.enable = true;
+    zoxide.enable = true;
     ripgrep.enable = true;
     yazi.enable = true;
     eza.enable = true;
     fd.enable = true;
-    rofi.enable = true;
     lazydocker.enable = true;
+    fish = import ./fish.nix {};
+    rofi = import ./rofi.nix {};
 
-    zoxide = {
-      enable = true;
-      enableFishIntegration = true;
-    };
-
-    starship = {
-      enable = true;
-      enableFishIntegration = true;
-    };
-
-    fish = {
-      enable = true;
-      interactiveShellInit = ''
-        set fish_greeting
-        if command -q nix-your-shell
-          nix-your-shell fish | source
-        end
-      '';
-
-      shellAliases = {
-        n = "nvim";
-        lzd = "lazydocker";
-        lzg = "lazygit";
-        r = "rails";
-        hrc = "heroku run console";
-        g = "git";
-        cl = "clear";
-        ls = "eza -lh --group-directories-first --icons";
-      };
-    };
-
-    ssh = {
-      enable = true;
-      extraConfig = ''
-        AddKeysToAgent yes
-      '';
-    };
+    ssh.extraConfig = ''
+      AddKeysToAgent yes
+    '';
 
     git = {
-      enable = true;
       settings = {
         user = {
           email = vars.gitUserEmail;
@@ -79,34 +50,15 @@
       };
     };
 
-    lazygit = {
-      enable = true;
-      enableFishIntegration = true;
-    };
+    lazygit.enableFishIntegration = true;
+    zoxide.enableFishIntegration = true;
+    starship.enableFishIntegration = true;
   };
 
   wayland.windowManager.hyprland = {
     enable = true;
     systemd.enable = false;
-    settings = {
-      monitor = "QEMU Monitor, 2160x1440@144, 0x0, 1";
-
-      "$mod" = "SUPER";
-      bind =
-        [
-          "$mod, RETURN, exec, ghostty"
-          "$mod, SPACE, exec, rofi -show drun"
-        ]
-        ++ (
-          builtins.concatLists (builtins.genList (i: let
-              ws = i + 1;
-            in [
-              "$mod, code:1${toString i}, workspace, ${toString ws}"
-              "$mod SHIFT, code:1${toString i}, movetoworkspace, ${toString ws}"
-            ])
-            9)
-        );
-    };
+    settings = import ./hyprland.nix {};
   };
 
   xdg.configFile."ghostty/config".text = ''
