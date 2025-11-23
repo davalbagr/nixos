@@ -4,85 +4,85 @@
   inputs,
   vars,
   ...
-}:
+}: {
+  home = {
+    stateVersion = vars.homeStateVersion;
+    username = vars.username;
 
-{
-  home.stateVersion = vars.homeStateVersion;
-  home.username = vars.username;
-
-  home.packages = [
-    pkgs.ghostty
-    pkgs.brave
-    pkgs.heroku
-    pkgs.any-nix-shell
-    pkgs.nixfmt-rfc-style
-  ];
-
-  programs.home-manager.enable = true;
-  programs.ripgrep.enable = true;
-  programs.yazi.enable = true;
-  programs.eza.enable = true;
-  programs.fd.enable = true;
-  programs.rofi.enable = true;
-  programs.lazydocker.enable = true;
-
-  programs.zoxide = {
-    enable = true;
-    enableFishIntegration = true;
+    packages = with pkgs; [
+      ghostty
+      brave
+      heroku
+      nix-your-shell
+      nixfmt-rfc-style
+      vesktop
+      hyprshot
+    ];
   };
 
-  programs.starship = {
-    enable = true;
-    enableFishIntegration = true;
-  };
+  programs = {
+    home-manager.enable = true;
+    ripgrep.enable = true;
+    yazi.enable = true;
+    eza.enable = true;
+    fd.enable = true;
+    rofi.enable = true;
+    lazydocker.enable = true;
 
-  programs.fish = {
-    enable = true;
-    interactiveShellInit = ''
-      set fish_greeting
-      ${pkgs.any-nix-shell}/bin/any-nix-shell fish --info-right | source
-
-      if uwsm check may-start
-        exec uwsm start hyprland-uwsm.desktop
-      end
-    '';
-
-    shellAliases = {
-      n = "nvim";
-      rebuild = "sudo nixos-rebuild switch --flake ~/.config/nixos#$(hostname)";
-      lzd = "lazydocker";
-      lzg = "lazygit";
-      r = "rails";
-      hrc = "heroku run console";
-      g = "git";
-      cl = "clear";
-      ls = "eza -lh --group-directories-first --icons";
+    zoxide = {
+      enable = true;
+      enableFishIntegration = true;
     };
-  };
 
-  services.ssh-agent.enable = true;
-  programs.ssh = {
-    enable = true;
-    extraConfig = ''
-      AddKeysToAgent yes
-    '';
-  };
+    starship = {
+      enable = true;
+      enableFishIntegration = true;
+    };
 
-  programs.git = {
-    enable = true;
-    settings = {
-      user = {
-        email = vars.gitUserEmail;
-        name = vars.gitUserName;
+    fish = {
+      enable = true;
+      interactiveShellInit = ''
+        set fish_greeting
+        if command -q nix-your-shell
+          nix-your-shell fish | source
+        end
+      '';
+
+      shellAliases = {
+        n = "nvim";
+        lzd = "lazydocker";
+        lzg = "lazygit";
+        r = "rails";
+        hrc = "heroku run console";
+        g = "git";
+        cl = "clear";
+        ls = "eza -lh --group-directories-first --icons";
       };
-      init.defaultBranch = "main";
-      pull.rebase = true;
     };
-  };
 
-  programs.lazygit = {
-    enable = true;
-    enableFishIntegration = true;
+    ssh = {
+      enable = true;
+      extraConfig = ''
+        AddKeysToAgent yes
+      '';
+    };
+
+    git = {
+      enable = true;
+      settings = {
+        user = {
+          email = vars.gitUserEmail;
+          name = vars.gitUserName;
+        };
+        init.defaultBranch = "main";
+        pull.rebase = true;
+      };
+    };
+
+    lazygit = {
+      enable = true;
+      enableFishIntegration = true;
+    };
   };
 
   wayland.windowManager.hyprland = {
@@ -92,10 +92,20 @@
       monitor = "QEMU Monitor, 2160x1440@144, 0x0, 1";
 
       "$mod" = "SUPER";
-      bind = [
-        "$mod, RETURN, exec, ghostty"
-        "$mod, SPACE, exec, rofi -show drun"
-      ];
+      bind =
+        [
+          "$mod, RETURN, exec, ghostty"
+          "$mod, SPACE, exec, rofi -show drun"
+        ]
+        ++ (
+          builtins.concatLists (builtins.genList (i: let
+              ws = i + 1;
+            in [
+              "$mod, code:1${toString i}, workspace, ${toString ws}"
+              "$mod SHIFT, code:1${toString i}, movetoworkspace, ${toString ws}"
+            ])
+            9)
+        );
     };
   };
 
@@ -103,4 +113,6 @@
     theme = Rose Pine
     window-decoration = none
   '';
+
+  services.ssh-agent.enable = true;
 }

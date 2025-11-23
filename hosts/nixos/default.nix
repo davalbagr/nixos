@@ -4,25 +4,28 @@
   inputs,
   vars,
   ...
-}:
+}: {
+  nix = {
+    settings.experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
 
-{
-  nix.settings.experimental-features = [
-    "nix-command"
-    "flakes"
-  ];
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 14d";
+      persistent = true;
+    };
 
-  nix.gc = {
-    automatic = true;
-    dates = "weekly";
-    options = "--delete-older-than 14d";
-    persistent = true;
+    settings.auto-optimise-store = true;
   };
 
-  nix.settings.auto-optimise-store = true;
-
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader = {
+    systemd-boot.enable = true;
+    efi.canTouchEfiVariables = true;
+    timeout = 0;
+  };
 
   networking.hostName = vars.hostname;
   networking.wireless.enable = true;
@@ -45,11 +48,6 @@
     LC_TIME = "pt_PT.UTF-8";
   };
 
-  services.xserver.xkb = {
-    layout = "us";
-    variant = "";
-  };
-
   users.users.${vars.username} = {
     isNormalUser = true;
     extraGroups = [
@@ -58,11 +56,10 @@
     ];
   };
 
-  services.getty.autologinUser = vars.username;
-
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
+    nh
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -73,42 +70,85 @@
   #   enableSSHSupport = true;
   # };
 
-  programs.bash = {
-    enable = true;
-    interactiveShellInit = ''
-      if [[ $(${pkgs.procps}/bin/ps --no-header --pid=$PPID --format=comm) != "fish" && -z ''${BASH_EXECUTION_STRING} ]]
-      then
-        shopt -q login_shell && LOGIN_OPTION='--login' || LOGIN_OPTION=""
-        exec ${pkgs.fish}/bin/fish $LOGIN_OPTION
-      fi
-    '';
-  };
+  programs = {
+    bash = {
+      enable = true;
+      interactiveShellInit = ''
+        if [[ $(${pkgs.procps}/bin/ps --no-header --pid=$PPID --format=comm) != "fish" && -z ''${BASH_EXECUTION_STRING} ]]
+        then
+          shopt -q login_shell && LOGIN_OPTION='--login' || LOGIN_OPTION=""
+          exec ${pkgs.fish}/bin/fish $LOGIN_OPTION
+        fi
+      '';
+    };
 
-  programs.hyprland = {
-    enable = true;
-    withUWSM = true;
-  };
+    hyprland = {
+      enable = true;
+      withUWSM = true;
+    };
 
-  programs.nvf = {
-    enable = true;
-    settings = import ../../nvf.nix {
-      inherit
-        pkgs
-        vars
-        ;
+    nvf = {
+      enable = true;
+      settings = import ../../nvf.nix {
+        inherit
+          pkgs
+          vars
+          ;
+      };
     };
   };
 
-  services.xserver.enable = true;
-  services.xserver.desktopManager.session = [
-    {
-      name = "hyprland";
-      start = ''
-        ${pkgs.hyprland}/bin/Hyprland
-      '';
-    }
-  ];
-  services.xserver.displayManager.lightdm.enable = false;
+  stylix = {
+    enable = true;
+    autoEnable = true;
+    cursor = {
+      package = pkgs.rose-pine-cursor;
+      name = "rose-pine-cursor";
+      size = 14;
+    };
+    base16Scheme = {
+      slug = "rose-pine";
+      base00 = "#191724";
+      base01 = "#1f1d2e";
+      base02 = "#26233a";
+      base03 = "#6e6a86";
+      base04 = "#908caa";
+      base05 = "#e0def4";
+      base06 = "#e0def4";
+      base07 = "#524f67";
+      base08 = "#eb6f92";
+      base09 = "#f6c177";
+      base0A = "#ebbcba";
+      base0B = "#31748f";
+      base0C = "#9ccfd8";
+      base0D = "#c4a7e7";
+      base0E = "#f6c177";
+      base0F = "#524f67";
+    };
+    image = ../../wallpaper.png;
+    targets.nvf.enable = false;
+  };
+
+  services = {
+    openssh.enable = true;
+    getty.autologinUser = vars.username;
+    xserver = {
+      enable = true;
+      xkb = {
+        layout = "us";
+        variant = "";
+      };
+      desktopManager.session = [
+        {
+          name = "hyprland";
+          start = ''
+            ${pkgs.hyprland}/bin/Hyprland
+          '';
+        }
+      ];
+      displayManager.lightdm.enable = false;
+    };
+  };
 
   home-manager = {
     users.${vars.username} = import ../../home.nix {
@@ -119,10 +159,13 @@
         vars
         ;
     };
-    extraSpecialArgs = { inherit inputs vars; };
+    sharedModules = [
+      {
+        stylix.targets.hyprland.enable = true;
+      }
+    ];
+    extraSpecialArgs = {inherit inputs vars;};
   };
-
-  services.openssh.enable = true;
 
   virtualisation.docker = {
     enable = true;
@@ -132,10 +175,15 @@
     };
   };
 
-  environment.loginShellInit = ''
-    hyprland
-  '';
-  environment.sessionVariables.NIXOS_OZONE_WL = "1";
+  environment = {
+    loginShellInit = ''
+      if uwsm check may-start; then
+          exec uwsm start hyprland-uwsm.desktop
+      fi
+    '';
+
+    sessionVariables.NIXOS_OZONE_WL = "1";
+  };
 
   system.stateVersion = vars.homeStateVersion;
 }
