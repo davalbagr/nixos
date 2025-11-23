@@ -100,11 +100,13 @@
   services.ssh-agent.enable = true;
   services.dunst.enable = true;
 
-  xdg.desktopEntries = {
+  xdg.desktopEntries = let
+    browser = pkgs.lib.getExe pkgs.ungoogled-chromium;
+  in {
     slack = {
       terminal = false;
       name = "Slack";
-      exec = "${pkgs.lib.getExe pkgs.chromium} --app=\"https://slack.com\"";
+      exec = ''${browser} --app="https://slack.com" --new-window'';
     };
   };
 }

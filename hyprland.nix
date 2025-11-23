@@ -6,10 +6,14 @@ _: {
     [
       "$mod, RETURN, exec, foot"
       "$mod, SPACE, exec, rofi -show drun"
-      "$mod, d, exec, discord"
+      "$mod, d, exec, hyprctl clients | grep vesktop && hyprctl dispatch focuswindow class:vesktop || setsid -f vesktop"
       "$mod, s, exec, slack"
-      "$mod, c, exec, chromium"
+      "$mod, c, exec, hyprctl clients | grep chromium && hyprctl dispatch focuswindow class:chromium-browser || setsid -f chromium"
       "$mod, w, killactive,"
+      "$mod, h, movefocus, l"
+      "$mod, l, movefocus, r"
+      "$mod, k, movefocus, u"
+      "$mod, j, movefocus, d"
     ]
     ++ (
       builtins.concatLists (builtins.genList (
