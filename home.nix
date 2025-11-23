@@ -6,6 +6,9 @@
   home = {
     stateVersion = vars.homeStateVersion;
     username = vars.username;
+    pointerCursor = {
+      gtk.enable = true;
+    };
 
     packages = with pkgs; [
       heroku
@@ -19,12 +22,15 @@
     ];
   };
 
+  gtk = {
+    enable = true;
+  };
+
   programs = {
     home-manager.enable = true;
     git.enable = true;
     starship.enable = true;
     lazygit.enable = true;
-    ssh.enable = true;
     zoxide.enable = true;
     ripgrep.enable = true;
     yazi.enable = true;
@@ -39,9 +45,22 @@
     fish = import ./fish.nix {};
     rofi = import ./rofi.nix {};
 
-    ssh.extraConfig = ''
-      AddKeysToAgent yes
-    '';
+    ssh = {
+      enable = true;
+      enableDefaultConfig = false;
+      matchBlocks."*" = {
+        forwardAgent = false;
+        addKeysToAgent = "yes";
+        compression = false;
+        serverAliveInterval = 0;
+        serverAliveCountMax = 3;
+        hashKnownHosts = false;
+        userKnownHostsFile = "~/.ssh/known_hosts";
+        controlMaster = "no";
+        controlPath = "~/.ssh/master-%r@%n:%p";
+        controlPersist = "no";
+      };
+    };
 
     git = {
       settings = {

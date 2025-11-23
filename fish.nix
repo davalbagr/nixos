@@ -6,6 +6,10 @@ _: {
     if command -q nix-your-shell
       nix-your-shell fish | source
     end
+    fish_vi_key_bindings
+  '';
+
+  shellInit = ''
     export EDITOR='nvim'
     export VISUAL='nvim'
   '';

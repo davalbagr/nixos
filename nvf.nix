@@ -10,12 +10,6 @@ _: {
       trouble.enable = true;
     };
 
-    theme = {
-      enable = true;
-      name = "rose-pine";
-      style = "main";
-    };
-
     statusline.lualine.enable = true;
 
     utility = {
