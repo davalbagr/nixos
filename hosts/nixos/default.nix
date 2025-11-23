@@ -94,7 +94,7 @@
 
     nvf = {
       enable = true;
-      settings = import ../../nvf.nix {};
+      settings = import ../../nvf.nix {inherit pkgs;};
     };
   };
 

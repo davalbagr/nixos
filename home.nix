@@ -37,6 +37,7 @@
     eza.enable = true;
     fd.enable = true;
     lazydocker.enable = true;
+    codex.enable = true;
     foot = {
       enable = true;
       server.enable = true;

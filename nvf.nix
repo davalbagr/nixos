@@ -1,8 +1,9 @@
-_: {
+{pkgs}: {
   vim = {
     viAlias = true;
     vimAlias = true;
     searchCase = "smart";
+    syntaxHighlighting = true;
 
     lsp = {
       enable = true;
@@ -11,6 +12,12 @@ _: {
     };
 
     statusline.lualine.enable = true;
+
+    autocomplete = {
+      blink-cmp = {
+        enable = true;
+      };
+    };
 
     utility = {
       motion.flash-nvim.enable = true;
@@ -74,6 +81,24 @@ _: {
       enableExtraDiagnostics = true;
       enableFormat = true;
       enableTreesitter = true;
+    };
+
+    extraPlugins = {
+      neotest = {
+        package = pkgs.vimPlugins.neotest;
+      };
+
+      neotest-rspec = {
+        package = pkgs.vimPlugins.neotest-rspec;
+      };
+
+      neotest-go = {
+        package = pkgs.vimPlugins.neotest-go;
+      };
+
+      grug-far = {
+        package = pkgs.vimPlugins.grug-far-nvim;
+      };
     };
   };
 }
