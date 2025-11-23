@@ -11,13 +11,6 @@
       "flakes"
     ];
 
-    gc = {
-      automatic = true;
-      dates = "weekly";
-      options = "--delete-older-than 14d";
-      persistent = true;
-    };
-
     settings.auto-optimise-store = true;
   };
 
@@ -59,7 +52,6 @@
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
-    nh
   ];
 
   fonts = {
@@ -78,6 +70,12 @@
   # };
 
   programs = {
+    nh = {
+      enable = true;
+      clean.enable = true;
+      clean.extraArgs = "--keep 3";
+    };
+
     bash = {
       enable = true;
       interactiveShellInit = ''
@@ -141,6 +139,7 @@
       }
     ];
     extraSpecialArgs = {inherit inputs vars;};
+    overwriteBackup = true;
   };
 
   virtualisation.docker = {

@@ -4,11 +4,11 @@ _: {
   "$mod" = "SUPER";
   bind =
     [
-      "$mod, RETURN, exec, ghostty"
+      "$mod, RETURN, exec, foot"
       "$mod, SPACE, exec, rofi -show drun"
       "$mod, d, exec, discord"
       "$mod, s, exec, slack"
-      "$mod, b, exec, brave"
+      "$mod, c, exec, chromium"
     ]
     ++ (
       builtins.concatLists (builtins.genList (

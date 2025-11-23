@@ -15,6 +15,7 @@
       hyprshot
       vesktop
       wl-clipboard
+      btop
     ];
   };
 
@@ -30,7 +31,10 @@
     eza.enable = true;
     fd.enable = true;
     lazydocker.enable = true;
-    ghostty.enable = true;
+    foot = {
+      enable = true;
+      server.enable = true;
+    };
 
     fish = import ./fish.nix {};
     rofi = import ./rofi.nix {};
@@ -52,7 +56,7 @@
 
     chromium = {
       enable = true;
-      package = pkgs.chromium;
+      package = pkgs.ungoogled-chromium;
       commandLineArgs = [
         "--disable-features=AutofillSavePaymentMethods"
       ];
@@ -65,7 +69,6 @@
     lazygit.enableFishIntegration = true;
     zoxide.enableFishIntegration = true;
     starship.enableFishIntegration = true;
-    ghostty.enableFishIntegration = true;
   };
 
   wayland.windowManager.hyprland = {
@@ -76,15 +79,6 @@
 
   services.ssh-agent.enable = true;
   services.dunst.enable = true;
-
-  systemd.user.services.wl-clip-persist = {
-    Unit = {
-      Description = "Persistent clipboard for Wayland";
-      PartOf = ["graphical-session.target"];
-    };
-    Install.WantedBy = ["graphical-session.target"];
-    Service.ExecStart = "${pkgs.lib.getExe pkgs.wl-clip-persist} --clipboard both";
-  };
 
   xdg.desktopEntries = {
     slack = {

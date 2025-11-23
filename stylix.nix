@@ -9,17 +9,17 @@
   fonts = {
     serif = {
       package = pkgs.nerd-fonts.jetbrains-mono;
-      name = "nerd-fonts-jetbrains-mono";
+      name = "JetBrainsMono Nerd Font Mono";
     };
 
     sansSerif = {
       package = pkgs.nerd-fonts.jetbrains-mono;
-      name = "nerd-fonts-jetbrains-mono";
+      name = "JetBrainsMono Nerd Font Mono";
     };
 
     monospace = {
       package = pkgs.nerd-fonts.jetbrains-mono;
-      name = "nerd-fonts-jetbrains-mono";
+      name = "JetBrainsMono Nerd Font Mono";
     };
   };
   base16Scheme = "${pkgs.base16-schemes}/share/themes/rose-pine.yaml";
