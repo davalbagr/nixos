@@ -123,8 +123,9 @@
         }
       ];
       displayManager.lightdm.enable = false;
-      libinput.naturalScrolling = true;
     };
+    libinput.touchpad.naturalScrolling = true;
+    libinput.mouse.naturalScrolling = true;
   };
 
   home-manager = {
