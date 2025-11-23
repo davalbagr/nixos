@@ -3,7 +3,6 @@
     viAlias = true;
     vimAlias = true;
     searchCase = "smart";
-    syntaxHighlighting = true;
 
     lsp = {
       enable = true;
@@ -12,6 +11,10 @@
     };
 
     statusline.lualine.enable = true;
+
+    ui = {
+      noice.enable = true;
+    };
 
     autocomplete = {
       blink-cmp = {
