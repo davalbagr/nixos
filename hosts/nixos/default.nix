@@ -100,52 +100,7 @@
     };
   };
 
-  stylix = {
-    enable = true;
-    autoEnable = true;
-    cursor = {
-      package = pkgs.rose-pine-cursor;
-      name = "rose-pine-cursor";
-      size = 14;
-    };
-    fonts = {
-      serif = {
-        package = pkgs.nerd-fonts.jetbrains-mono;
-        name = "nerd-fonts-jetbrains-mono";
-      };
-
-      sansSerif = {
-        package = pkgs.nerd-fonts.jetbrains-mono;
-        name = "nerd-fonts-jetbrains-mono";
-      };
-
-      monospace = {
-        package = pkgs.nerd-fonts.jetbrains-mono;
-        name = "nerd-fonts-jetbrains-mono";
-      };
-    };
-    base16Scheme = {
-      slug = "rose-pine";
-      base00 = "#191724";
-      base01 = "#1f1d2e";
-      base02 = "#26233a";
-      base03 = "#6e6a86";
-      base04 = "#908caa";
-      base05 = "#e0def4";
-      base06 = "#e0def4";
-      base07 = "#524f67";
-      base08 = "#eb6f92";
-      base09 = "#f6c177";
-      base0A = "#ebbcba";
-      base0B = "#31748f";
-      base0C = "#9ccfd8";
-      base0D = "#c4a7e7";
-      base0E = "#f6c177";
-      base0F = "#524f67";
-    };
-    image = ../../wallpaper.png;
-    targets.nvf.enable = false;
-  };
+  stylix = import ../../stylix.nix {inherit pkgs;};
 
   security.rtkit.enable = true;
   services = {
@@ -168,15 +123,14 @@
         }
       ];
       displayManager.lightdm.enable = false;
+      libinput.naturalScrolling = true;
     };
   };
 
   home-manager = {
     users.${vars.username} = import ../../home.nix {
       inherit
-        config
         pkgs
-        inputs
         vars
         ;
     };

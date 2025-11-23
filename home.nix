@@ -1,7 +1,5 @@
 {
-  config,
   pkgs,
-  inputs,
   vars,
   ...
 }: {
@@ -10,13 +8,13 @@
     username = vars.username;
 
     packages = with pkgs; [
-      brave
       heroku
       nix-your-shell
       nixfmt-rfc-style
       dunst
-      vesktop
       hyprshot
+      vesktop
+      wl-clipboard
     ];
   };
 
@@ -52,6 +50,18 @@
       };
     };
 
+    chromium = {
+      enable = true;
+      package = pkgs.chromium;
+      commandLineArgs = [
+        "--disable-features=AutofillSavePaymentMethods"
+      ];
+      extensions = [
+        {id = "nngceckbapebfimnlniiiahkandclblb";}
+        {id = "ddkjiahejlhfcafbddmgiahcphecmpfh";}
+      ];
+    };
+
     lazygit.enableFishIntegration = true;
     zoxide.enableFishIntegration = true;
     starship.enableFishIntegration = true;
@@ -66,4 +76,21 @@
 
   services.ssh-agent.enable = true;
   services.dunst.enable = true;
+
+  systemd.user.services.wl-clip-persist = {
+    Unit = {
+      Description = "Persistent clipboard for Wayland";
+      PartOf = ["graphical-session.target"];
+    };
+    Install.WantedBy = ["graphical-session.target"];
+    Service.ExecStart = "${pkgs.lib.getExe pkgs.wl-clip-persist} --clipboard both";
+  };
+
+  xdg.desktopEntries = {
+    slack = {
+      terminal = false;
+      name = "Slack";
+      exec = "${pkgs.lib.getExe pkgs.chromium} --app=\"https://slack.com\"";
+    };
+  };
 }

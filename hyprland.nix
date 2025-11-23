@@ -6,14 +6,22 @@ _: {
     [
       "$mod, RETURN, exec, ghostty"
       "$mod, SPACE, exec, rofi -show drun"
+      "$mod, d, exec, discord"
+      "$mod, s, exec, slack"
+      "$mod, b, exec, brave"
     ]
     ++ (
-      builtins.concatLists (builtins.genList (i: let
-          ws = i + 1;
-        in [
-          "$mod, code:1${toString i}, workspace, ${toString ws}"
-          "$mod SHIFT, code:1${toString i}, movetoworkspace, ${toString ws}"
-        ])
-        9)
+      builtins.concatLists (builtins.genList (
+          x: let
+            ws = let
+              c = (x + 1) / 10;
+            in
+              builtins.toString (x + 1 - (c * 10));
+          in [
+            "$mod, ${ws}, workspace, ${toString (x + 1)}"
+            "$mod SHIFT, ${ws}, movetoworkspace, ${toString (x + 1)}"
+          ]
+        )
+        10)
     );
 }
