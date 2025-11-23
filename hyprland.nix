@@ -9,6 +9,7 @@ _: {
       "$mod, d, exec, discord"
       "$mod, s, exec, slack"
       "$mod, c, exec, chromium"
+      "$mod, w, killactive,"
     ]
     ++ (
       builtins.concatLists (builtins.genList (

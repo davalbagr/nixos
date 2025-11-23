@@ -42,4 +42,5 @@
     base0F = "524f67";
   };
   image = ./wallpaper.png;
+  targets.nvf.plugin = "base16";
 }

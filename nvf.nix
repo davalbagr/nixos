@@ -16,6 +16,14 @@
       noice.enable = true;
     };
 
+    mini = {
+      ai.enable = true;
+      comment.enable = true;
+      pairs.enable = true;
+      surround.enable = true;
+      basics.enable = true;
+    };
+
     autocomplete = {
       blink-cmp = {
         enable = true;
@@ -68,18 +76,20 @@
       relativenumber = true;
       autoread = true;
       swapfile = false;
+      termguicolors = true;
     };
 
     languages = {
-      nix.enable = true;
-      ruby.enable = true;
       go.enable = true;
+      nix.enable = true;
       css.enable = true;
       html.enable = true;
       sql.enable = true;
       tailwind.enable = true;
       ts.enable = true;
       yaml.enable = true;
+      ruby.enable = true;
+      ruby.lsp.servers = ["ruby_lsp"];
 
       enableExtraDiagnostics = true;
       enableFormat = true;
