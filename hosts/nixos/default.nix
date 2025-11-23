@@ -147,7 +147,10 @@
     targets.nvf.enable = false;
   };
 
+  security.rtkit.enable = true;
   services = {
+    pipewire.enable = true;
+    pipewire.wireplumber.enable = true;
     openssh.enable = true;
     getty.autologinUser = vars.username;
     xserver = {

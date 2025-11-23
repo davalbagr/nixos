@@ -14,6 +14,7 @@
       heroku
       nix-your-shell
       nixfmt-rfc-style
+      dunst
       vesktop
       hyprshot
     ];
@@ -40,8 +41,6 @@
       AddKeysToAgent yes
     '';
 
-    ghostty.settings.window-decoration = "none";
-
     git = {
       settings = {
         user = {
@@ -66,4 +65,5 @@
   };
 
   services.ssh-agent.enable = true;
+  services.dunst.enable = true;
 }
