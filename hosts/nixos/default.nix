@@ -60,8 +60,14 @@
 
   environment.systemPackages = with pkgs; [
     nh
-    nerd-fonts.jetbrains-mono
   ];
+
+  fonts = {
+    fontDir.enable = true;
+    packages = with pkgs; [
+      nerd-fonts.jetbrains-mono
+    ];
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

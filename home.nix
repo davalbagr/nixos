@@ -10,7 +10,6 @@
     username = vars.username;
 
     packages = with pkgs; [
-      ghostty
       brave
       heroku
       nix-your-shell
@@ -32,12 +31,16 @@
     eza.enable = true;
     fd.enable = true;
     lazydocker.enable = true;
+    ghostty.enable = true;
+
     fish = import ./fish.nix {};
     rofi = import ./rofi.nix {};
 
     ssh.extraConfig = ''
       AddKeysToAgent yes
     '';
+
+    ghostty.settings.window-decoration = "none";
 
     git = {
       settings = {
@@ -53,6 +56,7 @@
     lazygit.enableFishIntegration = true;
     zoxide.enableFishIntegration = true;
     starship.enableFishIntegration = true;
+    ghostty.enableFishIntegration = true;
   };
 
   wayland.windowManager.hyprland = {
@@ -60,11 +64,6 @@
     systemd.enable = false;
     settings = import ./hyprland.nix {};
   };
-
-  xdg.configFile."ghostty/config".text = ''
-    theme = Rose Pine
-    window-decoration = none
-  '';
 
   services.ssh-agent.enable = true;
 }
