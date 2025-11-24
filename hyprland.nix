@@ -1,6 +1,4 @@
 _: {
-  monitor = "QEMU Monitor, 2160x1440@144, 0x0, 1";
-
   "$mod" = "SUPER";
   bind =
     [
