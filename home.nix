@@ -12,6 +12,7 @@
 
     packages = with pkgs; [
       heroku
+      postman
       nix-your-shell
       nixfmt-rfc-style
       libnotify
@@ -106,6 +107,7 @@
     browser = pkgs.lib.getExe pkgs.ungoogled-chromium;
   in {
     slack = {
+      type = "Application";
       terminal = false;
       name = "Slack";
       exec = ''${browser} --app="https://slack.com" --new-window'';

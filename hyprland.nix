@@ -4,11 +4,12 @@ _: {
   "$mod" = "SUPER";
   bind =
     [
-      "$mod, RETURN, exec, foot"
-      "$mod, SPACE, exec, ulauncher"
-      "$mod, d, exec, hyprctl clients | grep vesktop && hyprctl dispatch focuswindow class:vesktop || setsid -f vesktop"
-      "$mod, s, exec, slack"
-      "$mod, c, exec, hyprctl clients | grep chromium && hyprctl dispatch focuswindow class:chromium-browser || setsid -f chromium"
+      "$mod, RETURN, exec, uwsm app -- foot"
+      "$mod, SPACE, exec, uwsm app -- ulauncher"
+      "$mod, d, exec, hyprctl clients | grep vesktop && hyprctl dispatch focuswindow class:vesktop || uwsm app -- vesktop"
+      "$mod, s, exec, hyprctl clients | grep slack && hyprctl dispatch focuswindow class:chrome-slack.com__-Default || uwsm app -- ~/.nix-profile/share/applications/slack.desktop"
+      "$mod, p, exec, hyprctl clients | grep hoppscotch && hyprctl dispatch focuswindow class:chrome-hoppscotch.io__-Default || uwsm app -- postman"
+      "$mod, c, exec, hyprctl clients | grep chromium && hyprctl dispatch focuswindow class:chromium-browser || uwsm app -- chromium"
       "$mod, w, killactive,"
       "$mod, h, movefocus, l"
       "$mod, l, movefocus, r"
