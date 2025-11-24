@@ -8,8 +8,7 @@ let
 
   homeStateVersion = "25.05";
   nixpkgsBranch = "nixos-unstable";
-in
-{
+in {
   inherit
     username
     gitUserEmail

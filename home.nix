@@ -11,17 +11,22 @@
     };
 
     packages = with pkgs; [
+      bitwarden-cli
       heroku
       postman
       nix-your-shell
       nixfmt-rfc-style
       libnotify
-      dunst
       hyprshot
       vesktop
       wl-clipboard
-      btop
       ulauncher
+      btop
+      (
+        if vars.system == "aarch64-linux"
+        then slacky
+        else slack
+      )
     ];
   };
 
@@ -39,8 +44,10 @@
     yazi.enable = true;
     eza.enable = true;
     fd.enable = true;
+    jq.enable = true;
     lazydocker.enable = true;
     codex.enable = true;
+    bat.enable = true;
     foot = {
       enable = true;
       server.enable = true;
@@ -68,9 +75,16 @@
 
     git = {
       settings = {
+        gpg = {
+          format = "ssh";
+        };
         user = {
           email = vars.gitUserEmail;
           name = vars.gitUserName;
+          signingkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKEX4YOOt2sClE5+4Rio++bhyeKywJoAlbLXlgrOfUFl davidaagra@gmail.com";
+        };
+        commit = {
+          gpgsign = true;
         };
         init.defaultBranch = "main";
         pull.rebase = true;
@@ -97,20 +111,14 @@
   wayland.windowManager.hyprland = {
     enable = true;
     systemd.enable = false;
-    settings = import ./hyprland.nix {};
+    settings = import ./hyprland.nix {inherit vars;};
   };
 
-  services.ssh-agent.enable = true;
-  services.dunst.enable = true;
-
-  xdg.desktopEntries = let
-    browser = pkgs.lib.getExe pkgs.ungoogled-chromium;
-  in {
-    slack = {
-      type = "Application";
-      terminal = false;
-      name = "Slack";
-      exec = ''${browser} --app="https://slack.com" --new-window'';
+  services = {
+    ssh-agent = {
+      enable = true;
+      enableFishIntegration = true;
     };
+    dunst.enable = true;
   };
 }

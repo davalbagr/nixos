@@ -1,12 +1,17 @@
-_: {
+{vars}: {
   "$mod" = "SUPER";
-  bind =
+  bind = let
+    slack =
+      if vars.system == "aarch64-linux"
+      then "slacky"
+      else "slack";
+  in
     [
       "$mod, RETURN, exec, uwsm app -- foot"
       "$mod, SPACE, exec, uwsm app -- ulauncher"
       "$mod, d, exec, hyprctl clients | grep vesktop && hyprctl dispatch focuswindow class:vesktop || uwsm app -- vesktop"
-      "$mod, s, exec, hyprctl clients | grep slack && hyprctl dispatch focuswindow class:chrome-slack.com__-Default || uwsm app -- ~/.nix-profile/share/applications/slack.desktop"
-      "$mod, p, exec, hyprctl clients | grep hoppscotch && hyprctl dispatch focuswindow class:chrome-hoppscotch.io__-Default || uwsm app -- postman"
+      "$mod, s, exec, hyprctl clients | grep ${slack} && hyprctl dispatch focuswindow class:slack || uwsm app -- ${slack}"
+      "$mod, p, exec, hyprctl clients | grep postman && hyprctl dispatch focuswindow class:postman || uwsm app -- postman"
       "$mod, c, exec, hyprctl clients | grep chromium && hyprctl dispatch focuswindow class:chromium-browser || uwsm app -- chromium"
       "$mod, w, killactive,"
       "$mod, h, movefocus, l"
