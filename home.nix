@@ -11,7 +11,6 @@
     };
 
     packages = with pkgs; [
-      bitwarden-cli
       heroku
       postman
       nix-your-shell
