@@ -2,8 +2,8 @@
   enable = true;
   autoEnable = true;
   cursor = {
-    package = pkgs.rose-pine-cursor;
-    name = "rose-pine-cursor";
+    package = pkgs.rose-pine-hyprcursor;
+    name = "BreezX-RosePine-Linux";
     size = 14;
   };
   fonts = {
