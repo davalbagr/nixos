@@ -153,7 +153,7 @@
     loginShellInit = ''
       if uwsm check may-start; then
           exec uwsm start hyprland-uwsm.desktop
-      fi
+      fi > /dev/null
     '';
 
     sessionVariables.NIXOS_OZONE_WL = "1";

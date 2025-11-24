@@ -46,6 +46,7 @@
     };
 
     fish = import ./fish.nix {};
+    tmux = import ./tmux.nix {};
 
     ssh = {
       enable = true;
