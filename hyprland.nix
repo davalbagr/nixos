@@ -5,7 +5,7 @@ _: {
   bind =
     [
       "$mod, RETURN, exec, foot"
-      "$mod, SPACE, exec, rofi -show drun"
+      "$mod, SPACE, exec, ulauncher"
       "$mod, d, exec, hyprctl clients | grep vesktop && hyprctl dispatch focuswindow class:vesktop || setsid -f vesktop"
       "$mod, s, exec, slack"
       "$mod, c, exec, hyprctl clients | grep chromium && hyprctl dispatch focuswindow class:chromium-browser || setsid -f chromium"

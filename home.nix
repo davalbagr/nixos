@@ -19,6 +19,7 @@
       vesktop
       wl-clipboard
       btop
+      ulauncher
     ];
   };
 
@@ -44,7 +45,6 @@
     };
 
     fish = import ./fish.nix {};
-    rofi = import ./rofi.nix {};
 
     ssh = {
       enable = true;
