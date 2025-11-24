@@ -43,4 +43,8 @@
   };
   image = ./wallpaper.png;
   targets.nvf.plugin = "base16";
+  overlays.enable = true;
+  opacity = {
+    terminal = 0.90;
+  };
 }
