@@ -47,7 +47,7 @@
     };
 
     fish = import ./fish.nix {};
-    tmux = import ./tmux.nix {};
+    tmux = import ./tmux.nix {inherit pkgs;};
 
     ssh = {
       enable = true;
