@@ -14,6 +14,7 @@
       heroku
       nix-your-shell
       nixfmt-rfc-style
+      libnotify
       dunst
       hyprshot
       vesktop
