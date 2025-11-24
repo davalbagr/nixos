@@ -26,11 +26,6 @@
     ...
   }: let
     vars = import ./variables.nix;
-
-    pkgs = import nixpkgs {
-      system = vars.system;
-      config.allowUnfree = true;
-    };
   in {
     nixosConfigurations.${vars.hostname} = nixpkgs.lib.nixosSystem {
       system = vars.system;
