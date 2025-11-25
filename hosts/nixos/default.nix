@@ -137,7 +137,7 @@
   };
 
   home-manager = {
-    users.${vars.username} = import ../../home.nix {
+    users.${vars.username} = import ../../home {
       inherit
         pkgs
         vars

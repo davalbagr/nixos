@@ -41,7 +41,7 @@
   wayland.windowManager.hyprland = {
     enable = true;
     systemd.enable = false;
-    settings = import ./hyprland.nix {inherit vars;};
+    settings = import ../hyprland.nix {inherit vars;};
   };
 
   services = {
