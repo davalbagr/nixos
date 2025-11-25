@@ -4,13 +4,12 @@
   vars,
   ...
 }: {
-  nix = {
-    settings.experimental-features = [
+  nix.settings = {
+    experimental-features = [
       "nix-command"
       "flakes"
     ];
-
-    settings.auto-optimise-store = true;
+    auto-optimise-store = true;
   };
 
   boot.loader = {
@@ -19,25 +18,28 @@
     timeout = 0;
   };
 
-  networking.hostName = vars.hostname;
-  networking.wireless.enable = true;
+  networking = {
+    hostName = vars.hostname;
+    wireless.enable = true;
+  };
 
   # networking.networkmanager.enable = true;
 
   time.timeZone = "Europe/Lisbon";
 
-  i18n.defaultLocale = "en_US.UTF-8";
-
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "pt_PT.UTF-8";
-    LC_IDENTIFICATION = "pt_PT.UTF-8";
-    LC_MEASUREMENT = "pt_PT.UTF-8";
-    LC_MONETARY = "pt_PT.UTF-8";
-    LC_NAME = "pt_PT.UTF-8";
-    LC_NUMERIC = "pt_PT.UTF-8";
-    LC_PAPER = "pt_PT.UTF-8";
-    LC_TELEPHONE = "pt_PT.UTF-8";
-    LC_TIME = "pt_PT.UTF-8";
+  i18n = {
+    defaultLocale = "en_US.UTF-8";
+    extraLocaleSettings = {
+      LC_ADDRESS = "pt_PT.UTF-8";
+      LC_IDENTIFICATION = "pt_PT.UTF-8";
+      LC_MEASUREMENT = "pt_PT.UTF-8";
+      LC_MONETARY = "pt_PT.UTF-8";
+      LC_NAME = "pt_PT.UTF-8";
+      LC_NUMERIC = "pt_PT.UTF-8";
+      LC_PAPER = "pt_PT.UTF-8";
+      LC_TELEPHONE = "pt_PT.UTF-8";
+      LC_TIME = "pt_PT.UTF-8";
+    };
   };
 
   users.users.${vars.username} = {
@@ -49,9 +51,6 @@
   };
 
   nixpkgs.config.allowUnfree = true;
-
-  environment.systemPackages = with pkgs; [
-  ];
 
   fonts = {
     fontDir.enable = true;
@@ -162,8 +161,9 @@
           exec uwsm start hyprland-uwsm.desktop
       fi > /dev/null
     '';
-
     sessionVariables.NIXOS_OZONE_WL = "1";
+    systemPackages = with pkgs; [
+    ];
   };
 
   system.stateVersion = vars.homeStateVersion;
