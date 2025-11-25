@@ -7,16 +7,16 @@ SYSTEM_VAL="${ARCH}-${OS}"
 USERNAME_VAL="$(whoami)"
 
 if [ $OS = "linux" ]; then
-    MACHINE_ID="$(cat /etc/machine-id)"
+    MACHINE_ID="$(cat /etc/machine-id | sha256sum | head -c 64)"
 else
-    MACHINE_ID="$(system_profiler SPHardwareDataType | grep UUID | awk 'NF>1{print $NF}')"
+    MACHINE_ID="$(system_profiler SPHardwareDataType | grep UUID | awk 'NF>1{print $NF}' | sha256sum | head -c 64)"
 fi
 
 cp /etc/nixos/hardware-configuration.nix machines/${MACHINE_ID}.nix
 
 cat > .osdata <<EOF
-HOSTNAME="${HOSTNAME_VAL}"
-SYSTEM="${SYSTEM_VAL}"
-USERNAME="${USERNAME_VAL}"
-MACHINE_ID="${MACHINE_ID}"
+hostname="${HOSTNAME_VAL}"
+system="${SYSTEM_VAL}"
+username="${USERNAME_VAL}"
+machine="${MACHINE_ID}"
 EOF
