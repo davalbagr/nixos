@@ -1,4 +1,4 @@
-{pkgs}: {
+{pkgs, ...}: {
   vim = {
     viAlias = true;
     vimAlias = true;
