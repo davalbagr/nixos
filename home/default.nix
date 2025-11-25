@@ -33,7 +33,6 @@ in {
       vesktop
       wl-clipboard
       ulauncher
-      btop
       (
         if pkgs.stdenv.system == "aarch64-linux"
         then slacky

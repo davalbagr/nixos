@@ -33,4 +33,7 @@
         )
         10)
     );
+  env = [
+    "ELECTRON_OZONE_PLATFORM_HINT,wayland"
+  ];
 }
