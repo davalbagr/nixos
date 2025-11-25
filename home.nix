@@ -50,6 +50,11 @@
     foot = {
       enable = true;
       server.enable = true;
+      settings = {
+        bell = {
+          system = "no";
+        };
+      };
     };
 
     fish = import ./fish.nix {};
