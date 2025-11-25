@@ -24,14 +24,21 @@
     stylix,
     ...
   }: let
-    cfg = builtins.fromTOML (builtins.readFile "${self}/config.toml");
-    pkgs = nixpkgs.legacyPackages.${cfg.system};
+    homeStateVersion = "25.11";
+    system = "aarch64-linux";
+    hostname = "nixos";
+    machine = "qemu-vm";
+    username =
+      if nixpkgs.lib.inPureEvalMode
+      then "davidagra"
+      else builtins.getEnv "USER";
+    pkgs = nixpkgs.legacyPackages.${system};
   in {
-    nixosConfigurations.${cfg.hostname} = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.${hostname} = nixpkgs.lib.nixosSystem {
       inherit (pkgs.stdenv) system;
 
       specialArgs = {
-        inherit inputs cfg;
+        inherit inputs username homeStateVersion;
         configDir = self;
       };
 
@@ -44,7 +51,7 @@
           then "linux.nix"
           else "macos.nix"
         }
-        ./machines/${cfg.machine}.nix
+        ./machines/${machine}.nix
       ];
     };
   };

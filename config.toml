@@ -1,5 +1,0 @@
-username = "davidagra"
-hostname = "nixos"
-machine = "qemu-vm"
-system = "aarch64-linux"
-homeStateVersion = "25.11"

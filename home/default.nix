@@ -1,14 +1,14 @@
 {
   pkgs,
-  cfg,
   inputs,
+  username,
+  homeStateVersion,
   ...
 }: let
   importDir = type:
     pkgs.lib.attrsets.concatMapAttrs (name: value: {
       ${pkgs.lib.strings.removeSuffix ".nix" name} = import ./${type}/${name} {
         inherit pkgs;
-        inherit cfg;
       };
     }) (builtins.readDir ./${type});
 in {
@@ -17,9 +17,9 @@ in {
   ];
 
   home = {
-    inherit (cfg) username;
+    inherit username;
 
-    stateVersion = cfg.homeStateVersion;
+    stateVersion = homeStateVersion;
     pointerCursor = {
       gtk.enable = true;
     };
