@@ -24,21 +24,15 @@
     stylix,
     ...
   }: let
-    homeStateVersion = "25.11";
-    system = "aarch64-linux";
-    hostname = "nixos";
-    machine = "qemu-vm";
-    username =
-      if nixpkgs.lib.inPureEvalMode
-      then "davidagra"
-      else builtins.getEnv "USER";
+    cfg = builtins.fromTOML (builtins.readFile "${self}/.osdata");
+    inherit (cfg) hostname machine system username;
     pkgs = nixpkgs.legacyPackages.${system};
   in {
     nixosConfigurations.${hostname} = nixpkgs.lib.nixosSystem {
       inherit (pkgs.stdenv) system;
 
       specialArgs = {
-        inherit inputs username homeStateVersion;
+        inherit inputs username;
         configDir = self;
       };
 
@@ -46,11 +40,7 @@
         home-manager.nixosModules.default
         stylix.nixosModules.stylix
 
-        ./os/${
-          if pkgs.stdenv.isLinux
-          then "linux.nix"
-          else "macos.nix"
-        }
+        ./os/linux.nix
         ./machines/${machine}.nix
       ];
     };

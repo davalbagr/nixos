@@ -2,7 +2,6 @@
   pkgs,
   inputs,
   username,
-  homeStateVersion,
   ...
 }: {
   nix.settings = {
@@ -137,7 +136,6 @@
         pkgs
         inputs
         username
-        homeStateVersion
         ;
     };
     sharedModules = [
@@ -168,5 +166,5 @@
     ];
   };
 
-  system.stateVersion = homeStateVersion;
+  system.stateVersion = "25.11";
 }

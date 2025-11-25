@@ -2,7 +2,6 @@
   pkgs,
   inputs,
   username,
-  homeStateVersion,
   ...
 }: let
   importDir = type:
@@ -19,7 +18,7 @@ in {
   home = {
     inherit username;
 
-    stateVersion = homeStateVersion;
+    stateVersion = "25.11";
     pointerCursor = {
       gtk.enable = true;
     };
