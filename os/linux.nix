@@ -91,7 +91,7 @@
     };
   };
 
-  stylix = import ../../stylix.nix {inherit pkgs;};
+  stylix = import ../stylix.nix {inherit pkgs;};
 
   security.rtkit.enable = true;
   services = {
@@ -131,7 +131,7 @@
   };
 
   home-manager = {
-    users.${cfg.username} = import ../../home {
+    users.${cfg.username} = import ../home {
       inherit
         pkgs
         cfg

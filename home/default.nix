@@ -17,8 +17,9 @@ in {
   ];
 
   home = {
+    inherit (cfg) username;
+
     stateVersion = cfg.homeStateVersion;
-    username = cfg.username;
     pointerCursor = {
       gtk.enable = true;
     };
@@ -27,7 +28,6 @@ in {
       heroku
       postman
       nix-your-shell
-      nixfmt-rfc-style
       libnotify
       hyprshot
       vesktop
@@ -35,7 +35,7 @@ in {
       ulauncher
       btop
       (
-        if cfg.system == "aarch64-linux"
+        if pkgs.stdenv.system == "aarch64-linux"
         then slacky
         else slack
       )
@@ -50,6 +50,6 @@ in {
   wayland.windowManager.hyprland = {
     enable = true;
     systemd.enable = false;
-    settings = import ../hyprland.nix {inherit cfg;};
+    settings = import ../hyprland.nix {inherit pkgs;};
   };
 }

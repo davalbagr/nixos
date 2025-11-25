@@ -1,3 +1,3 @@
-_: {
-  enable = true;
+{pkgs, ...}: {
+  enable = pkgs.stdenv.isLinux;
 }

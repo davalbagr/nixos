@@ -25,9 +25,10 @@
     ...
   }: let
     cfg = builtins.fromTOML (builtins.readFile "${self}/config.toml");
+    pkgs = nixpkgs.legacyPackages.${cfg.system};
   in {
     nixosConfigurations.${cfg.hostname} = nixpkgs.lib.nixosSystem {
-      system = cfg.system;
+      inherit (pkgs.stdenv) system;
 
       specialArgs = {
         inherit inputs cfg;
@@ -38,8 +39,12 @@
         home-manager.nixosModules.default
         stylix.nixosModules.stylix
 
-        ./hosts/${cfg.hostname}/default.nix
-        ./hosts/${cfg.hostname}/hardware-configuration.nix
+        ./os/${
+          if pkgs.stdenv.isLinux
+          then "linux.nix"
+          else "macos.nix"
+        }
+        ./machines/${cfg.machine}.nix
       ];
     };
   };
