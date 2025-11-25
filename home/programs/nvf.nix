@@ -1,5 +1,6 @@
 {pkgs, ...}: {
-  vim = {
+  enable = true;
+  settings.vim = {
     viAlias = true;
     vimAlias = true;
     searchCase = "smart";

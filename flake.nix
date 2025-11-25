@@ -37,7 +37,6 @@
 
       modules = [
         home-manager.nixosModules.default
-        nvf.nixosModules.default
         stylix.nixosModules.stylix
 
         ./hosts/${vars.hostname}/default.nix

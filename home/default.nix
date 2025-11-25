@@ -1,6 +1,7 @@
 {
   pkgs,
   vars,
+  inputs,
   ...
 }: let
   importDir = type:
@@ -11,6 +12,10 @@
       };
     }) (builtins.readDir ./${type});
 in {
+  imports = [
+    inputs.nvf.homeManagerModules.default
+  ];
+
   home = {
     stateVersion = vars.homeStateVersion;
     username = vars.username;

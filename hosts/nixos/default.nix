@@ -90,11 +90,6 @@
       enable = true;
       withUWSM = true;
     };
-
-    nvf = {
-      enable = true;
-      settings = import ../../nvf.nix {inherit pkgs;};
-    };
   };
 
   stylix = import ../../stylix.nix {inherit pkgs;};
@@ -141,6 +136,7 @@
       inherit
         pkgs
         vars
+        inputs
         ;
     };
     sharedModules = [
