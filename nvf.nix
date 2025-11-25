@@ -137,6 +137,22 @@
         silent = true;
         desc = "Open Oil in parent directory";
       }
+      {
+        key = "gd";
+        mode = ["n"];
+        action = "function() vim.lsp.buf.definition() end";
+        lua = true;
+        silent = true;
+        desc = "Goto definition";
+      }
+      {
+        key = "gh";
+        mode = ["n"];
+        action = "function() vim.lsp.buf.hover() end";
+        lua = true;
+        silent = true;
+        desc = "Show hover info";
+      }
     ];
   };
 }
