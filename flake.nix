@@ -22,16 +22,15 @@
     nixpkgs,
     home-manager,
     stylix,
-    nvf,
     ...
   }: let
-    vars = import ./variables.nix;
+    cfg = builtins.fromTOML (builtins.readFile "${self}/config.toml");
   in {
-    nixosConfigurations.${vars.hostname} = nixpkgs.lib.nixosSystem {
-      system = vars.system;
+    nixosConfigurations.${cfg.hostname} = nixpkgs.lib.nixosSystem {
+      system = cfg.system;
 
       specialArgs = {
-        inherit inputs vars;
+        inherit inputs cfg;
         configDir = self;
       };
 
@@ -39,8 +38,8 @@
         home-manager.nixosModules.default
         stylix.nixosModules.stylix
 
-        ./hosts/${vars.hostname}/default.nix
-        ./hosts/${vars.hostname}/hardware-configuration.nix
+        ./hosts/${cfg.hostname}/default.nix
+        ./hosts/${cfg.hostname}/hardware-configuration.nix
       ];
     };
   };

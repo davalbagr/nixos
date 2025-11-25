@@ -1,8 +1,8 @@
-{vars}: {
+{cfg}: {
   "$mod" = "SUPER";
   bind = let
     slack =
-      if vars.system == "aarch64-linux"
+      if cfg.system == "aarch64-linux"
       then "slacky"
       else "slack";
   in

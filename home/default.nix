@@ -1,6 +1,6 @@
 {
   pkgs,
-  vars,
+  cfg,
   inputs,
   ...
 }: let
@@ -8,7 +8,7 @@
     pkgs.lib.attrsets.concatMapAttrs (name: value: {
       ${pkgs.lib.strings.removeSuffix ".nix" name} = import ./${type}/${name} {
         inherit pkgs;
-        inherit vars;
+        inherit cfg;
       };
     }) (builtins.readDir ./${type});
 in {
@@ -17,8 +17,8 @@ in {
   ];
 
   home = {
-    stateVersion = vars.homeStateVersion;
-    username = vars.username;
+    stateVersion = cfg.homeStateVersion;
+    username = cfg.username;
     pointerCursor = {
       gtk.enable = true;
     };
@@ -35,7 +35,7 @@ in {
       ulauncher
       btop
       (
-        if vars.system == "aarch64-linux"
+        if cfg.system == "aarch64-linux"
         then slacky
         else slack
       )
@@ -50,6 +50,6 @@ in {
   wayland.windowManager.hyprland = {
     enable = true;
     systemd.enable = false;
-    settings = import ../hyprland.nix {inherit vars;};
+    settings = import ../hyprland.nix {inherit cfg;};
   };
 }

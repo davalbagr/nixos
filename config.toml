@@ -1,0 +1,7 @@
+username = "davidagra"
+gitUserEmail = "davidaagra@gmail.com"
+gitUserName = "davalbagr"
+hostname = "nixos"
+system = "aarch64-linux"
+homeStateVersion = "25.05"
+nixinputs.nixpkgsBranch = "nixos-unstable"

@@ -1,7 +1,7 @@
 {
   pkgs,
   inputs,
-  vars,
+  cfg,
   ...
 }: {
   nix.settings = {
@@ -19,7 +19,7 @@
   };
 
   networking = {
-    hostName = vars.hostname;
+    hostName = cfg.hostname;
     wireless.enable = true;
   };
 
@@ -42,7 +42,7 @@
     };
   };
 
-  users.users.${vars.username} = {
+  users.users.${cfg.username} = {
     isNormalUser = true;
     extraGroups = [
       "networkmanager"
@@ -98,7 +98,7 @@
     pipewire.enable = true;
     pipewire.wireplumber.enable = true;
     openssh.enable = true;
-    getty.autologinUser = vars.username;
+    getty.autologinUser = cfg.username;
     xserver = {
       enable = true;
       xkb = {
@@ -131,10 +131,10 @@
   };
 
   home-manager = {
-    users.${vars.username} = import ../../home {
+    users.${cfg.username} = import ../../home {
       inherit
         pkgs
-        vars
+        cfg
         inputs
         ;
     };
@@ -143,7 +143,7 @@
         stylix.targets.hyprland.enable = true;
       }
     ];
-    extraSpecialArgs = {inherit inputs vars;};
+    extraSpecialArgs = {inherit inputs cfg;};
     overwriteBackup = true;
   };
 
@@ -166,5 +166,5 @@
     ];
   };
 
-  system.stateVersion = vars.homeStateVersion;
+  system.stateVersion = cfg.homeStateVersion;
 }
