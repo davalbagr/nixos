@@ -2,7 +2,15 @@
   pkgs,
   vars,
   ...
-}: {
+}: let
+  importDir = type:
+    pkgs.lib.attrsets.concatMapAttrs (name: value: {
+      ${pkgs.lib.strings.removeSuffix ".nix" name} = import ./${type}/${name} {
+        inherit pkgs;
+        inherit vars;
+      };
+    }) (builtins.readDir ./${type});
+in {
   home = {
     stateVersion = vars.homeStateVersion;
     username = vars.username;
@@ -31,24 +39,12 @@
 
   gtk.enable = true;
 
-  programs = pkgs.lib.attrsets.concatMapAttrs (name: value: {
-    ${pkgs.lib.strings.removeSuffix ".nix" name} = import ./programs/${name} {
-      inherit pkgs;
-      inherit vars;
-    };
-  }) (builtins.readDir ./programs);
+  programs = importDir "programs";
+  services = importDir "services";
 
   wayland.windowManager.hyprland = {
     enable = true;
     systemd.enable = false;
     settings = import ../hyprland.nix {inherit vars;};
-  };
-
-  services = {
-    ssh-agent = {
-      enable = true;
-      enableFishIntegration = true;
-    };
-    dunst.enable = true;
   };
 }
