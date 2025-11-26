@@ -39,6 +39,6 @@
   decoration = {
     blur.enabled = 0;
     shadow.enabled = 0;
-    rounding = 5;
+    rounding = 3;
   };
 }
