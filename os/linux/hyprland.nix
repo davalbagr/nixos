@@ -8,7 +8,7 @@
   in
     [
       "$mod, RETURN, exec, uwsm app -- foot"
-      "$mod, SPACE, exec, uwsm app -- ulauncher"
+      "$mod, SPACE, exec, uwsm app -- bemenu-run"
       "$mod, d, exec, hyprctl clients | grep vesktop && hyprctl dispatch focuswindow class:vesktop || uwsm app -- vesktop"
       "$mod, s, exec, hyprctl clients | grep ${slack} && hyprctl dispatch focuswindow class:slack || uwsm app -- ${slack}"
       "$mod, p, exec, hyprctl clients | grep postman && hyprctl dispatch focuswindow class:postman || uwsm app -- postman"

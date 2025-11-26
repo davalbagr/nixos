@@ -31,7 +31,6 @@ in {
       hyprshot
       vesktop
       wl-clipboard
-      ulauncher
       (
         if pkgs.stdenv.system == "aarch64-linux"
         then slacky

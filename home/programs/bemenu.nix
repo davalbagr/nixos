@@ -1,6 +1,3 @@
 {pkgs, ...}: {
   enable = pkgs.stdenv.isLinux;
-  settings.global = {
-    timeout = 5;
-  };
 }
