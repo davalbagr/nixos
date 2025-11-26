@@ -12,6 +12,8 @@
     auto-optimise-store = true;
   };
 
+  hardware.bluetooth.enable = true;
+
   boot.loader = {
     systemd-boot.enable = true;
     efi.canTouchEfiVariables = true;

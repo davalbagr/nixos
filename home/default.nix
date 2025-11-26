@@ -24,24 +24,19 @@ in {
     };
 
     packages = with pkgs;
-      lib.lists.remove null [
+      [
         heroku
         postman
         nix-your-shell
         libnotify
         hyprshot
         wl-clipboard
-        (
-          if pkgs.stdenv.system == "aarch64-linux"
-          then slacky
-          else slack
-        )
-        (
-          if pkgs.stdenv.system != "aarch64-linux"
-          then discord
-          else null
-        )
-      ];
+      ]
+      ++ (
+        if pkgs.stdenv.system == "aarch64-linux"
+        then [slacky]
+        else [slack discord]
+      );
   };
 
   gtk.enable = pkgs.stdenv.isLinux;
