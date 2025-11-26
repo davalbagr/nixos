@@ -36,4 +36,9 @@
   env = [
     "ELECTRON_OZONE_PLATFORM_HINT,wayland"
   ];
+  decoration = {
+    blur.enabled = 0;
+    shadow.enabled = 0;
+    rounding = 5;
+  };
 }
