@@ -2,6 +2,7 @@
   pkgs,
   inputs,
   username,
+  config,
   ...
 }: {
   nix.settings = {
@@ -132,12 +133,14 @@
       inherit
         pkgs
         inputs
+        config
         username
         ;
     };
     sharedModules = [
       {
         stylix.targets.hyprland.enable = true;
+        stylix.targets.rofi.enable = false;
       }
     ];
     extraSpecialArgs = {inherit inputs;};
