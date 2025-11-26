@@ -15,6 +15,9 @@
       toggleterm = {
         enable = true;
         lazygit.enable = true;
+        setupOpts = {
+          direction = "float";
+        };
       };
     };
 
@@ -28,7 +31,20 @@
       ai.enable = true;
       comment.enable = true;
       pairs.enable = true;
-      surround.enable = true;
+      surround = {
+        enable = true;
+        setupOpts = {
+          mappings = {
+            add = "gsa";
+            delete = "gsd";
+            replace = "gsr";
+            highlight = "";
+            find = "";
+            find_left = "";
+          };
+          search_method = "cover_or_nearest";
+        };
+      };
       basics.enable = true;
     };
 
@@ -120,7 +136,6 @@
         mode = ["n"];
         action = "function() Snacks.picker.grep() end";
         lua = true;
-        silent = true;
         desc = "Grep";
       }
       {
@@ -128,14 +143,12 @@
         mode = ["n"];
         action = "function() Snacks.picker.smart() end";
         lua = true;
-        silent = true;
         desc = "Smart Find Files";
       }
       {
         key = "<leader>e";
         mode = ["n"];
         action = ":Oil<CR>";
-        silent = true;
         desc = "Open Oil in parent directory";
       }
       {
@@ -143,7 +156,6 @@
         mode = ["n"];
         action = "function() vim.lsp.buf.definition() end";
         lua = true;
-        silent = true;
         desc = "Goto definition";
       }
       {
@@ -151,8 +163,19 @@
         mode = ["n"];
         action = "function() vim.lsp.buf.hover() end";
         lua = true;
-        silent = true;
         desc = "Show hover info";
+      }
+      {
+        key = "jj";
+        mode = ["i"];
+        action = "<Esc>";
+        nowait = true;
+      }
+      {
+        key = "<leader>sr";
+        mode = ["n"];
+        action = ":GrugFar<CR>";
+        desc = "Search and Replace";
       }
     ];
   };
