@@ -18,12 +18,7 @@
     timeout = 0;
   };
 
-  networking.wireless = {
-    enable = true;
-    allowAuxiliaryImperativeNetworks = true;
-  };
-
-  # networking.networkmanager.enable = true;
+  networking.networkmanager.enable = true;
 
   time.timeZone = "Europe/Lisbon";
 
