@@ -20,7 +20,7 @@ in {
 
     stateVersion = "25.11";
     pointerCursor = {
-      gtk.enable = true;
+      gtk.enable = pkgs.stdenv.isLinux;
     };
 
     packages = with pkgs; [
@@ -40,14 +40,14 @@ in {
     ];
   };
 
-  gtk.enable = true;
+  gtk.enable = pkgs.stdenv.isLinux;
 
   programs = importDir "programs";
   services = importDir "services";
 
   wayland.windowManager.hyprland = {
-    enable = true;
+    enable = pkgs.stdenv.isLinux;
     systemd.enable = false;
-    settings = import ../hyprland.nix {inherit pkgs;};
+    settings = import ../os/linux/hyprland.nix {inherit pkgs;};
   };
 }

@@ -40,7 +40,7 @@
         home-manager.nixosModules.default
         stylix.nixosModules.stylix
 
-        ./os/linux.nix
+        ./os/linux
         ./machines/${machine}.nix
       ];
     };
