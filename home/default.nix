@@ -23,20 +23,25 @@ in {
       gtk.enable = pkgs.stdenv.isLinux;
     };
 
-    packages = with pkgs; [
-      heroku
-      postman
-      nix-your-shell
-      libnotify
-      hyprshot
-      vesktop
-      wl-clipboard
-      (
-        if pkgs.stdenv.system == "aarch64-linux"
-        then slacky
-        else slack
-      )
-    ];
+    packages = with pkgs;
+      lib.lists.remove null [
+        heroku
+        postman
+        nix-your-shell
+        libnotify
+        hyprshot
+        wl-clipboard
+        (
+          if pkgs.stdenv.system == "aarch64-linux"
+          then slacky
+          else slack
+        )
+        (
+          if pkgs.stdenv.system != "aarch64-linux"
+          then discord
+          else null
+        )
+      ];
   };
 
   gtk.enable = pkgs.stdenv.isLinux;
