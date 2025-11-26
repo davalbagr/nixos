@@ -166,12 +166,6 @@
         desc = "Show hover info";
       }
       {
-        key = "jj";
-        mode = ["i"];
-        action = "<Esc>";
-        nowait = true;
-      }
-      {
         key = "<leader>sr";
         mode = ["n"];
         action = ":GrugFar<CR>";
