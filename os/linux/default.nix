@@ -88,7 +88,7 @@
     };
   };
 
-  stylix = import ../../stylix.nix {inherit pkgs;};
+  stylix = import ../../home/stylix.nix {inherit pkgs;};
 
   security.rtkit.enable = true;
   services = {
