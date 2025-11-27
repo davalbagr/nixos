@@ -29,9 +29,6 @@ in {
         heroku
         postman
         nix-your-shell
-        libnotify
-        hyprshot
-        wl-clipboard
       ]
       ++ (
         if pkgs.stdenv.system == "aarch64-linux"
