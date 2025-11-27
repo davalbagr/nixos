@@ -45,9 +45,5 @@ in {
   programs = importDir "programs";
   services = importDir "services";
 
-  wayland.windowManager.hyprland = {
-    enable = pkgs.stdenv.isLinux;
-    systemd.enable = false;
-    settings = import ../os/linux/hyprland.nix {inherit pkgs;};
-  };
+  wayland.windowManager.hyprland = import ../os/linux/hyprland.nix {inherit pkgs;};
 }
