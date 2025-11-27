@@ -4,6 +4,7 @@
   commandLineArgs = [
     "--disable-features=AutofillSavePaymentMethods"
     "--disable-session-crashed-bubble"
+    "--disable-infobars"
   ];
   extensions = [
     {id = "nngceckbapebfimnlniiiahkandclblb";}

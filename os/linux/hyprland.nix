@@ -14,12 +14,13 @@ in {
     "$mod" = "SUPER";
     bind =
       [
-        "$mod, RETURN, exec, uwsm app -- foot"
-        "$mod, SPACE, exec, uwsm app -- fuzzel"
-        "$mod, d, exec, hyprctl clients | grep discord && hyprctl dispatch focuswindow class:discord || uwsm app -- ${discord}"
-        "$mod, s, exec, hyprctl clients | grep ${slack} && hyprctl dispatch focuswindow class:slack || uwsm app -- ${slack}"
-        "$mod, p, exec, hyprctl clients | grep postman && hyprctl dispatch focuswindow class:postman || uwsm app -- postman"
-        "$mod, c, exec, hyprctl clients | grep chromium && hyprctl dispatch focuswindow class:chromium-browser || uwsm app -- chromium"
+        "$mod, RETURN, exec, foot"
+        "$mod, f, exec, hyprctl clients | grep foot && hyprctl dispatch focuswindow class:foot || foot"
+        "$mod, SPACE, exec, fuzzel"
+        "$mod, d, exec, hyprctl clients | grep discord && hyprctl dispatch focuswindow class:discord || ${discord}"
+        "$mod, s, exec, hyprctl clients | grep ${slack} && hyprctl dispatch focuswindow class:slack || ${slack}"
+        "$mod, p, exec, hyprctl clients | grep postman && hyprctl dispatch focuswindow class:postman || postman"
+        "$mod, c, exec, hyprctl clients | grep chromium && hyprctl dispatch focuswindow class:chromium-browser || chromium"
         "$mod, w, killactive,"
         "$mod, h, movefocus, l"
         "$mod, l, movefocus, r"
@@ -53,9 +54,9 @@ in {
     };
   };
   extraConfig = ''
-    exec-once = [workspace 1 silent] uwsm app -- foot
-    exec-once = [workspace 2 silent] uwsm app -- chromium --app "https://mail.zoho.eu/zm" --new-window
-    exec-once = [workspace 3 silent] uwsm app -- ${discord}
-    exec-once = [workspace 4 silent] uwsm app -- ${slack}
+    exec-once = [workspace 1 silent] foot
+    exec-once = [workspace 2 silent] chromium --app "https://mail.zoho.eu/zm" --new-window
+    exec-once = [workspace 3 silent] ${discord}
+    exec-once = [workspace 4 silent] ${slack}
   '';
 }

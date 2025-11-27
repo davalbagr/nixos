@@ -164,7 +164,6 @@
     sharedModules = [
       {
         stylix.targets.hyprland.enable = true;
-        stylix.targets.rofi.enable = false;
       }
     ];
     extraSpecialArgs = {inherit inputs;};
