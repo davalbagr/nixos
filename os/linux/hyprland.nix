@@ -55,7 +55,6 @@ in {
   };
   extraConfig = ''
     exec-once = [workspace 1 silent] foot
-    exec-once = [workspace 2 silent] chromium --app "https://mail.zoho.eu/zm" --new-window
     exec-once = [workspace 3 silent] ${discord}
     exec-once = [workspace 4 silent] ${slack}
   '';
