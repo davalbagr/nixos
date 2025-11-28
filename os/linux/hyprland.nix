@@ -21,6 +21,7 @@ in {
         "$mod, s, exec, hyprctl clients | grep ${slack} && hyprctl dispatch focuswindow class:slack || ${slack}"
         "$mod, p, exec, hyprctl clients | grep postman && hyprctl dispatch focuswindow class:postman || postman"
         "$mod, c, exec, hyprctl clients | grep chromium && hyprctl dispatch focuswindow class:chromium-browser || chromium --new-window"
+        ''$mod, g, exec, GRIMBLAST_EDITOR="satty --filename" grimblast -f edit output''
         "$mod, w, killactive,"
         "$mod, h, movefocus, l"
         "$mod, l, movefocus, r"
