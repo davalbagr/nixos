@@ -174,13 +174,13 @@
       {
         key = "<leader>p";
         mode = ["v"];
-        action = "\"*p";
+        action = ''"*p'';
         desc = "Paste from system cliboard";
       }
       {
         key = "<leader>y";
         mode = ["v"];
-        action = "\"*y";
+        action = ''"+y'';
         desc = "Yank to system clipboard";
       }
     ];
