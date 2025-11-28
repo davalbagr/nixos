@@ -20,7 +20,7 @@ in {
         "$mod, d, exec, hyprctl clients | grep discord && hyprctl dispatch focuswindow class:discord || ${discord}"
         "$mod, s, exec, hyprctl clients | grep ${slack} && hyprctl dispatch focuswindow class:slack || ${slack}"
         "$mod, p, exec, hyprctl clients | grep postman && hyprctl dispatch focuswindow class:postman || postman"
-        "$mod, c, exec, hyprctl clients | grep chromium && hyprctl dispatch focuswindow class:chromium-browser || chromium"
+        "$mod, c, exec, hyprctl clients | grep chromium && hyprctl dispatch focuswindow class:chromium-browser || chromium --new-window"
         "$mod, w, killactive,"
         "$mod, h, movefocus, l"
         "$mod, l, movefocus, r"

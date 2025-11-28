@@ -171,6 +171,18 @@
         action = ":GrugFar<CR>";
         desc = "Search and Replace";
       }
+      {
+        key = "<leader>p";
+        mode = ["v"];
+        action = "\"*p";
+        desc = "Paste from system cliboard";
+      }
+      {
+        key = "<leader>y";
+        mode = ["v"];
+        action = "\"*y";
+        desc = "Yank to system clipboard";
+      }
     ];
   };
 }
