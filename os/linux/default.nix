@@ -119,22 +119,6 @@
     pipewire.wireplumber.enable = true;
     openssh.enable = true;
     getty.autologinUser = username;
-    xserver = {
-      enable = true;
-      xkb = {
-        layout = "us";
-        variant = "";
-      };
-      desktopManager.session = [
-        {
-          name = "hyprland";
-          start = ''
-            ${pkgs.hyprland}/bin/Hyprland
-          '';
-        }
-      ];
-      displayManager.lightdm.enable = false;
-    };
     libinput.touchpad.naturalScrolling = true;
     libinput.mouse.naturalScrolling = true;
     tlp = {
