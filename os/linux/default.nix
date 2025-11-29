@@ -138,6 +138,11 @@
   };
 
   environment = {
+    loginShellInit = ''
+      if [ "$(tty)" = "/dev/tty1" ]; then
+          exec Hyprland
+      fi
+    '';
     sessionVariables.NIXOS_OZONE_WL = "1";
     systemPackages = with pkgs; [
       libnotify
