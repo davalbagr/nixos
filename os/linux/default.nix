@@ -99,7 +99,6 @@
 
     hyprland = {
       enable = true;
-      withUWSM = true;
     };
   };
 
@@ -135,11 +134,6 @@
         username
         ;
     };
-    sharedModules = [
-      {
-        stylix.targets.hyprland.enable = true;
-      }
-    ];
     extraSpecialArgs = {inherit inputs;};
     overwriteBackup = true;
   };
@@ -154,9 +148,6 @@
 
   environment = {
     loginShellInit = ''
-      if uwsm check may-start; then
-          exec uwsm start hyprland-uwsm.desktop
-      fi > /dev/null
     '';
     sessionVariables.NIXOS_OZONE_WL = "1";
     systemPackages = with pkgs; [

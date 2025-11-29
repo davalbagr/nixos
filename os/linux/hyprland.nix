@@ -9,7 +9,12 @@
     else "discord";
 in {
   enable = pkgs.stdenv.isLinux;
-  systemd.enable = false;
+  package = null;
+  portalPackage = null;
+  systemd = {
+    enable = true;
+    variables = ["--all"];
+  };
   settings = {
     "$mod" = "SUPER";
     bind =
