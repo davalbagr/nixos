@@ -100,7 +100,6 @@
     pipewire.enable = true;
     pipewire.wireplumber.enable = true;
     openssh.enable = true;
-    getty.autologinUser = username;
     libinput.touchpad.naturalScrolling = true;
     libinput.mouse.naturalScrolling = true;
     tlp = {
