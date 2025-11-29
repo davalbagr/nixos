@@ -14,7 +14,7 @@ fi
 
 cp /etc/nixos/hardware-configuration.nix machines/${MACHINE_ID}.nix
 
-cat > .osdata <<EOF
+cat > config.toml <<EOF
 hostname="${HOSTNAME_VAL}"
 system="${SYSTEM_VAL}"
 username="${USERNAME_VAL}"

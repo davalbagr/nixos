@@ -24,9 +24,10 @@
     stylix,
     ...
   }: let
-    cfg = builtins.fromTOML (builtins.readFile "${self}/.osdata");
+    cfg = builtins.fromTOML (builtins.readFile "${self}/config.toml");
     inherit (cfg) hostname machine system username;
     pkgs = nixpkgs.legacyPackages.${system};
+    patches = map (name: import "${self}/patches/${name}.nix") cfg.patches;
   in {
     nixosConfigurations.${hostname} = nixpkgs.lib.nixosSystem {
       inherit (pkgs.stdenv) system;
@@ -36,13 +37,15 @@
         configDir = self;
       };
 
-      modules = [
-        home-manager.nixosModules.default
-        stylix.nixosModules.stylix
+      modules =
+        [
+          home-manager.nixosModules.default
+          stylix.nixosModules.stylix
 
-        ./os/linux
-        ./machines/${machine}.nix
-      ];
+          ./os/linux
+          ./machines/${machine}.nix
+        ]
+        ++ patches;
     };
   };
 }

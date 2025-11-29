@@ -2,3 +2,4 @@ hostname="nixos"
 system="aarch64-linux"
 username="davidagra"
 machine="24b55ba79fa5e6574fca0838211a5790f49fa0efb0fff7b839e3c520c798bdc0"
+patches = []
