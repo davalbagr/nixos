@@ -4,5 +4,11 @@
     bell = {
       system = "no";
     };
+    main = {
+      term = "xterm-256color";
+    };
+    mouse = {
+      hide-when-typing = "yes";
+    };
   };
 }

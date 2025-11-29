@@ -36,5 +36,8 @@ _: {
     g = "git";
     cl = "clear";
     ls = "eza -lh --group-directories-first --icons";
+    tl = "tmux list-sessions";
+    tn = "tmux new-session -s";
+    ta = "tmux attach-session";
   };
 }
