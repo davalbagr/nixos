@@ -3,6 +3,11 @@
   inputs,
   ...
 }: let
+  slack =
+    if pkgs.stdenv.hostPlatform.system == "aarch64-linux"
+    then "slacky"
+    else "slack";
+
   wallpaper = "${inputs.self}/wallpaper.png";
 in {
   enable = pkgs.stdenv.isLinux;
@@ -21,7 +26,8 @@ in {
     bind=SUPER,k,focusdir,up
     bind=SUPER,l,focusdir,right
 
-    cursor_theme="BreezX-RosePine-Linux"
+    cursor_theme="~/.icons/BreezX-RosePine-Linux"
+    cursor_size=14
     bordercolor=0x00000000
     # rootcolor=
     focuscolor=0xffc4a7e7
@@ -66,9 +72,16 @@ in {
 
     animations=0
     enable_hotarea=0
+
+    exec-once=chromium
+    exec-once=vesktop
+    exec-once=${slack}
+
+    windowrule=appid:chromium-browser,tags:2,isfullscreen:1
+    windowrule=appid:vesktop,tags:3,isfullscreen:1
+    windowrule=appid:${slack},tags:4,isfullscreen:1
   '';
   autostart_sh = ''
     swaybg -i ${wallpaper} -m center & disown
-
   '';
 }
