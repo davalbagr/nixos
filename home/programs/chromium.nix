@@ -8,7 +8,7 @@
   ];
   extensions = [
     {id = "nngceckbapebfimnlniiiahkandclblb";}
-    {id = "ddkjiahejlhfcafbddmgiahcphecmpfh";}
-    {id = "noimedcjdohhokijigpfcbjcfcaaahej";}
+    {id = "cjpalhdlnbpafiamejdnhcphjbkeiagm";}
+    {id = "ocaahdebbfolfmndjeplogmgcagdmblk";}
   ];
 }

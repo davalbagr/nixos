@@ -44,15 +44,15 @@ in {
     tagrule=id:8,layout_name:tile
     tagrule=id:9,layout_name:tile
 
-    bind=SUPER+SHIFT,1,movetag,1
-    bind=SUPER+SHIFT,2,movetag,2
-    bind=SUPER+SHIFT,3,movetag,3
-    bind=SUPER+SHIFT,4,movetag,4
-    bind=SUPER+SHIFT,5,movetag,5
-    bind=SUPER+SHIFT,6,movetag,6
-    bind=SUPER+SHIFT,7,movetag,7
-    bind=SUPER+SHIFT,8,movetag,8
-    bind=SUPER+SHIFT,9,movetag,9
+    bind=SUPER+SHIFT,1,tagsilent,1
+    bind=SUPER+SHIFT,2,tagsilent,2
+    bind=SUPER+SHIFT,3,tagsilent,3
+    bind=SUPER+SHIFT,4,tagsilent,4
+    bind=SUPER+SHIFT,5,tagsilent,5
+    bind=SUPER+SHIFT,6,tagsilent,6
+    bind=SUPER+SHIFT,7,tagsilent,7
+    bind=SUPER+SHIFT,8,tagsilent,8
+    bind=SUPER+SHIFT,9,tagsilent,9
 
     bind=SUPER,1,view,1
     bind=SUPER,2,view,2
