@@ -14,25 +14,61 @@ in {
 
     bind=SUPER,Return,spawn,foot
     bind=SUPER,space,spawn,fuzzel
+    bind=SUPER,s,spawn,grim -l 0 -g "$(slurp)" - | wl-copy
 
     bind=SUPER,h,focusdir,left
     bind=SUPER,j,focusdir,down
     bind=SUPER,k,focusdir,up
     bind=SUPER,l,focusdir,right
 
-    # cursor_theme=
-    # bordercolor=
+    cursor_theme="BreezX-RosePine-Linux"
+    bordercolor=0x00000000
     # rootcolor=
-    # focuscolor=
+    focuscolor=0xffc4a7e7
     # maximizescreencolor=
     # urgentcolor=
     # scratchpadcolor=
     # globalcolor=
     # overlaycolor=
+    no_border_when_single=1
+    borderpx=2
+    mouse_natural_scrolling=1
 
+    tagrule=id:1,layout_name:tile
+    tagrule=id:2,layout_name:tile
+    tagrule=id:3,layout_name:tile
+    tagrule=id:4,layout_name:tile
+    tagrule=id:5,layout_name:tile
+    tagrule=id:6,layout_name:tile
+    tagrule=id:7,layout_name:tile
+    tagrule=id:8,layout_name:tile
+    tagrule=id:9,layout_name:tile
 
+    bind=SUPER+SHIFT,1,movetag,1
+    bind=SUPER+SHIFT,2,movetag,2
+    bind=SUPER+SHIFT,3,movetag,3
+    bind=SUPER+SHIFT,4,movetag,4
+    bind=SUPER+SHIFT,5,movetag,5
+    bind=SUPER+SHIFT,6,movetag,6
+    bind=SUPER+SHIFT,7,movetag,7
+    bind=SUPER+SHIFT,8,movetag,8
+    bind=SUPER+SHIFT,9,movetag,9
+
+    bind=SUPER,1,view,1
+    bind=SUPER,2,view,2
+    bind=SUPER,3,view,3
+    bind=SUPER,4,view,4
+    bind=SUPER,5,view,5
+    bind=SUPER,6,view,6
+    bind=SUPER,7,view,7
+    bind=SUPER,8,view,8
+    bind=SUPER,9,view,9
+
+    animation_type_open=zoom
+    animation_type_close=zoom
   '';
   autostart_sh = ''
-    swaybg -i ${wallpaper} -m center
+    swaybg -i ${wallpaper} -m center & disown
+
   '';
 }

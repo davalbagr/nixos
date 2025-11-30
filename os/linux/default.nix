@@ -89,6 +89,25 @@
     };
 
     mango.enable = true;
+
+    foot = {
+      enable = true;
+      enableFishIntegration = true;
+      theme = "rose-pine";
+      settings = {
+        bell = {
+          system = "no";
+        };
+        main = {
+          term = "xterm-256color";
+          font-size-adjustment = 2;
+          font = "JetBrainsMonoNerdFont";
+        };
+        mouse = {
+          hide-when-typing = "yes";
+        };
+      };
+    };
   };
 
   security.rtkit.enable = true;
@@ -146,8 +165,8 @@
       wl-clipboard
       grim
       slurp
-      satty
       swaybg
+      wlsunset
     ];
   };
 

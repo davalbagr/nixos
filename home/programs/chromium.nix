@@ -9,5 +9,6 @@
   extensions = [
     {id = "nngceckbapebfimnlniiiahkandclblb";}
     {id = "ddkjiahejlhfcafbddmgiahcphecmpfh";}
+    {id = "noimedcjdohhokijigpfcbjcfcaaahej";}
   ];
 }
