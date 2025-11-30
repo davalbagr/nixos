@@ -11,8 +11,8 @@
       url = "github:notashelf/nvf/v0.8";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    stylix = {
-      url = "github:nix-community/stylix";
+    mango = {
+      url = "github:DreamMaoMao/mangowc";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -21,7 +21,7 @@
     self,
     nixpkgs,
     home-manager,
-    stylix,
+    mango,
     ...
   }: let
     cfg = builtins.fromTOML (builtins.readFile "${self}/config.toml");
@@ -44,7 +44,7 @@
       modules =
         [
           home-manager.nixosModules.default
-          stylix.nixosModules.stylix
+          mango.nixosModules.mango
 
           ./os/linux
           ./machines/${machine}.nix

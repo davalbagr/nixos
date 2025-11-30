@@ -4,6 +4,11 @@
     viAlias = true;
     vimAlias = true;
     searchCase = "smart";
+    theme = {
+      enable = true;
+      name = "rose-pine";
+      style = "main";
+    };
 
     lsp = {
       enable = true;

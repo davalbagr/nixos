@@ -88,12 +88,8 @@
       '';
     };
 
-    hyprland = {
-      enable = true;
-    };
+    mango.enable = true;
   };
-
-  stylix = import ../../home/stylix.nix {inherit pkgs;};
 
   security.rtkit.enable = true;
   services = {
@@ -116,6 +112,8 @@
   };
 
   home-manager = {
+    useGlobalPkgs = true;
+    useUserPackages = true;
     users.${username} = import ../../home {
       inherit
         pkgs
@@ -139,15 +137,17 @@
   environment = {
     loginShellInit = ''
       if [ "$(tty)" = "/dev/tty1" ]; then
-          exec Hyprland
+          exec mango
       fi
     '';
     sessionVariables.NIXOS_OZONE_WL = "1";
     systemPackages = with pkgs; [
       libnotify
       wl-clipboard
-      grimblast
+      grim
+      slurp
       satty
+      swaybg
     ];
   };
 

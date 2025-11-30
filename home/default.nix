@@ -14,6 +14,7 @@
 in {
   imports = [
     inputs.nvf.homeManagerModules.default
+    inputs.mango.hmModules.mango
   ];
 
   home = {
@@ -22,6 +23,9 @@ in {
     stateVersion = "25.11";
     pointerCursor = {
       gtk.enable = pkgs.stdenv.isLinux;
+      name = "BreezX-RosePine-Linux";
+      package = pkgs.rose-pine-cursor;
+      size = 14;
     };
 
     packages = with pkgs;
@@ -29,6 +33,7 @@ in {
         heroku
         postman
         nix-your-shell
+        rose-pine-cursor
       ]
       ++ (
         if pkgs.stdenv.system == "aarch64-linux"
@@ -37,10 +42,19 @@ in {
       );
   };
 
+  fonts.fontconfig = {
+    enable = true;
+    defaultFonts = {
+      monospace = ["JetBrainsMonoNerdFont"];
+      sansSerif = ["JetBrainsMonoNerdFont"];
+      serif = ["JetBrainsMonoNerdFont"];
+    };
+  };
+
   gtk.enable = pkgs.stdenv.isLinux;
 
   programs = importDir "programs";
   services = importDir "services";
 
-  wayland.windowManager.hyprland = import ../os/linux/hyprland.nix {inherit pkgs;};
+  wayland.windowManager.mango = import ../os/linux/mango.nix {inherit pkgs inputs;};
 }
