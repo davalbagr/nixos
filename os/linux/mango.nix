@@ -26,8 +26,8 @@ in {
     bind=SUPER,k,focusdir,up
     bind=SUPER,l,focusdir,right
 
-    cursor_theme="~/.icons/BreezX-RosePine-Linux"
-    cursor_size=14
+    cursor_theme="BreezX-RosePine-Linux"
+    cursor_size=24
     bordercolor=0x00000000
     # rootcolor=
     focuscolor=0xffc4a7e7
@@ -77,9 +77,9 @@ in {
     exec-once=vesktop
     exec-once=${slack}
 
-    windowrule=appid:chromium-browser,tags:2,isfullscreen:1
-    windowrule=appid:vesktop,tags:3,isfullscreen:1
-    windowrule=appid:${slack},tags:4,isfullscreen:1
+    windowrule=appid:chromium-browser,tags:2,isopensilent:1
+    windowrule=appid:vesktop,tags:3,isopensilent:1
+    windowrule=appid:${slack},tags:4,isopensilent:1
   '';
   autostart_sh = ''
     swaybg -i ${wallpaper} -m center & disown

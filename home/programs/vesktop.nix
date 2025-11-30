@@ -9,8 +9,9 @@ _: {
       useQuickCss = true;
       disableMinSize = true;
       frameless = true;
-      transparent = true;
-      enabledThemes = ["rose-pine.css"];
     };
+  };
+  settings = {
+    enableSplashScreen = false;
   };
 }
