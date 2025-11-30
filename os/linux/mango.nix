@@ -64,8 +64,8 @@ in {
     bind=SUPER,8,view,8
     bind=SUPER,9,view,9
 
-    animation_type_open=zoom
-    animation_type_close=zoom
+    animations=0
+    enable_hotarea=0
   '';
   autostart_sh = ''
     swaybg -i ${wallpaper} -m center & disown
