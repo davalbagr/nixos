@@ -13,6 +13,7 @@
     auto-optimise-store = true;
   };
 
+  security.polkit.enable = true;
   hardware.bluetooth = {
     enable = true;
     powerOnBoot = true;

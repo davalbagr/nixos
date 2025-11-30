@@ -27,7 +27,6 @@ in {
     bind=SUPER,l,focusdir,right
 
     cursor_theme="BreezX-RosePine-Linux"
-    cursor_size=24
     bordercolor=0x00000000
     # rootcolor=
     focuscolor=0xffc4a7e7
@@ -39,6 +38,7 @@ in {
     no_border_when_single=1
     borderpx=2
     mouse_natural_scrolling=1
+    drag_tile_to_tile=1
 
     tagrule=id:1,layout_name:tile
     tagrule=id:2,layout_name:tile
@@ -80,6 +80,18 @@ in {
     windowrule=appid:chromium-browser,tags:2,isopensilent:1
     windowrule=appid:vesktop,tags:3,isopensilent:1
     windowrule=appid:${slack},tags:4,isopensilent:1
+
+    cursor_size=24
+    env=XCURSOR_SIZE,24
+    env=GTK_IM_MODULE,fcitx
+    env=QT_IM_MODULE,fcitx
+    env=SDL_IM_MODULE,fcitx
+    env=XMODIFIERS,@im=fcitx
+    env=GLFW_IM_MODULE,ibus
+    env=QT_QPA_PLATFORMTHEME,qt5ct
+    env=QT_AUTO_SCREEN_SCALE_FACTOR,1
+    env=QT_QPA_PLATFORM,Wayland;xcb
+    env=QT_WAYLAND_FORCE_DPI,140
   '';
   autostart_sh = ''
     swaybg -i ${wallpaper} -m center & disown
