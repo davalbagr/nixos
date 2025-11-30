@@ -7,7 +7,7 @@
 in {
   enable = pkgs.stdenv.isLinux;
   settings = ''
-    bind=SUPER,w,killclient
+    bind=SUPER,q,killclient
     bind=SUPER,m,quit
     bind=SUPER,n,switch_layout
     bind=SUPER,r,reload_config
