@@ -172,7 +172,7 @@
       grim
       slurp
       swaybg
-      wlsunset
+      brightnessctl
     ];
   };
 
