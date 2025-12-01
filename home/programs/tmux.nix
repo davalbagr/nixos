@@ -12,20 +12,17 @@
     set -g renumber-windows on
     set -g set-clipboard on
 
-    set -ag terminal-overrides ",*:RGB"
-    set -g pane-border-style fg=magenta
+    set -sg terminal-overrides ",*:RGB"
+    set -g pane-border-style fg=black,bright
     set -g pane-active-border-style fg=magenta
 
-    set-option -g status-position top
-    set -g status-justify right
-    set -g status-left ""
-    set -g status-right "   "
     set -g status-style bg=default,fg=black,bright
-
-    set -g window-status-format "●"
-    set -g window-status-current-format "●"
-    set -g window-status-current-style "#{fg=magenta,nobold}"
-    set -g window-status-bell-style "fg=red,nobold"
+    set -g status-left ""
+    set -g status-right ""
+    set -g window-status-format "-"
+    set -g window-status-current-format "*"
+    set -g window-status-current-style "fg=magenta"
+    set -g window-status-style "fg=magenta"
 
     bind -n M-1 select-window -t :1
     bind -n M-2 select-window -t :2
@@ -41,10 +38,12 @@
     bind -n M-h select-pane -L
     bind -n M-j select-pane -D
     bind -n M-l select-pane -R
-    bind -n M-\\ split-window -h
-    bind -n M-- split-window -v
     bind -n M-x kill-pane
     bind -n M-d kill-window
     bind -n M-t new-window
+    bind -n M-H split-window -hb
+    bind -n M-J split-window -v
+    bind -n M-K split-window -vb
+    bind -n M-L split-window -h
   '';
 }

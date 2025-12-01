@@ -17,18 +17,6 @@
       trouble.enable = true;
     };
 
-    terminal = {
-      toggleterm = {
-        enable = true;
-        lazygit.enable = true;
-        setupOpts = {
-          direction = "float";
-        };
-      };
-    };
-
-    statusline.lualine.enable = true;
-
     ui = {
       noice.enable = true;
     };
@@ -58,6 +46,21 @@
       blink-cmp.enable = true;
     };
 
+    telescope = {
+      enable = true;
+      extensions = [
+        {
+          name = "fzf";
+          packages = [pkgs.vimPlugins.telescope-fzf-native-nvim];
+          setup = {fzf = {fuzzy = true;};};
+        }
+      ];
+      mappings = {
+        liveGrep = "<leader>/";
+        findFiles = "<leader><leader>";
+      };
+    };
+
     utility = {
       motion.flash-nvim.enable = true;
 
@@ -80,9 +83,7 @@
         setupOpts = {
           bigfile.enabled = true;
           indent.enabled = true;
-          picker.enabled = true;
           quickfile.enabled = true;
-          lazygit.enabled = true;
           words.enabled = true;
         };
       };
@@ -138,20 +139,6 @@
 
     keymaps = [
       {
-        key = "<leader>/";
-        mode = ["n"];
-        action = "function() Snacks.picker.grep() end";
-        lua = true;
-        desc = "Grep";
-      }
-      {
-        key = "<leader><space>";
-        mode = ["n"];
-        action = "function() Snacks.picker.smart() end";
-        lua = true;
-        desc = "Smart Find Files";
-      }
-      {
         key = "<leader>e";
         mode = ["n"];
         action = ":Oil<CR>";
@@ -179,8 +166,8 @@
       }
       {
         key = "<leader>p";
-        mode = ["v"];
-        action = ''"*p'';
+        mode = ["n"];
+        action = ''"+p'';
         desc = "Paste from system cliboard";
       }
       {
