@@ -8,11 +8,11 @@ _: {
       disabled = false;
       symbol = " ";
     };
-    julia = {
+    nix_shell = {
       style = "bg:overlay fg:pine";
-      format = " [](fg:overlay)[ $symbol$version ]($style)[](fg:overlay)";
+      format = " [](fg:overlay)[ $symbol ]($style)[](fg:overlay)";
       disabled = false;
-      symbol = " ";
+      symbol = "❄";
     };
     scala = {
       style = "bg:overlay fg:pine";
@@ -32,7 +32,7 @@ _: {
       disabled = false;
       symbol = "🅒 ";
     };
-    format = "$directory$fill$c$elixir$elm$golang$haskell$java$julia$nodejs$nim$rust$scala$conda$python
+    format = "$directory$fill$c$elixir$golang$haskell$java$nodejs$nim$rust$scala$python$nix_shell
   [󱞪](fg:iris) ";
     elixir = {
       style = "bg:overlay fg:pine";

@@ -103,7 +103,7 @@
         main = {
           term = "xterm-256color";
           font-size-adjustment = 2;
-          font = "JetBrainsMonoNerdFont:size=12";
+          font = "JetBrainsMonoNerdFont:size=16";
         };
         mouse = {
           hide-when-typing = "yes";
