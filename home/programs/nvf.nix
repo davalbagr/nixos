@@ -25,7 +25,6 @@
 
     mini = {
       ai.enable = true;
-      comment.enable = true;
       pairs.enable = true;
       icons.enable = true;
       surround = {
@@ -134,13 +133,6 @@
         mode = ["n"];
         action = ":Oil<CR>";
         desc = "Open Oil in parent directory";
-      }
-      {
-        key = "gd";
-        mode = ["n"];
-        action = "function() vim.lsp.buf.definition() end";
-        lua = true;
-        desc = "Goto definition";
       }
       {
         key = "gh";
@@ -488,13 +480,6 @@
         action = "function() Snacks.picker.undo() end";
         lua = true;
         desc = "Undo History";
-      }
-      {
-        key = "<leader>uC";
-        mode = ["n" "v"];
-        action = "function() Snacks.picker.colorschemes() end";
-        lua = true;
-        desc = "Colorschemes";
       }
       {
         key = "gd";
