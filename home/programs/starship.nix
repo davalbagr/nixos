@@ -32,7 +32,7 @@ _: {
       disabled = false;
       symbol = "🅒 ";
     };
-    format = "$directory$git_branch$git_status$fill$c$elixir$elm$golang$haskell$java$julia$nodejs$nim$rust$scala$conda$python
+    format = "$directory$fill$c$elixir$elm$golang$haskell$java$julia$nodejs$nim$rust$scala$conda$python
   [󱞪](fg:iris) ";
     elixir = {
       style = "bg:overlay fg:pine";

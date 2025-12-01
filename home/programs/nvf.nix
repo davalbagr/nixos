@@ -106,6 +106,7 @@
       autoread = true;
       swapfile = false;
       termguicolors = true;
+      statusline = "%=%f";
     };
 
     languages = {

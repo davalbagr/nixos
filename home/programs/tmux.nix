@@ -16,9 +16,12 @@
     set -g pane-border-style fg=black,bright
     set -g pane-active-border-style fg=magenta
 
-    set -g status-style bg=default,fg=black,bright
+    set -g status-position top
+    set -g status-justify right
+    set -g status-style bg=default,fg=magenta
     set -g status-left ""
-    set -g status-right ""
+    set -g status-right " #(cd #{pane_current_path}; git rev-parse --abbrev-ref HEAD)"
+    set -g status-right-length 200
     set -g window-status-format "-"
     set -g window-status-current-format "*"
     set -g window-status-current-style "fg=magenta"
