@@ -454,13 +454,6 @@
         desc = "Man Pages";
       }
       {
-        key = "<leader>sp";
-        mode = ["n" "v"];
-        action = "function() Snacks.picker.lazy() end";
-        lua = true;
-        desc = "Search for Plugin Spec";
-      }
-      {
         key = "<leader>sq";
         mode = ["n" "v"];
         action = "function() Snacks.picker.qflist() end";
