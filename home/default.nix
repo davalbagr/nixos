@@ -54,6 +54,14 @@ in {
 
   gtk = {
     enable = pkgs.stdenv.isLinux;
+    theme = {
+      name = "rose-pine-gtk";
+      package = pkgs.rose-pine-gtk-theme;
+    };
+    iconTheme = {
+      name = "rose-pine-icons";
+      package = pkgs.rose-pine-icon-theme;
+    };
     cursorTheme = {
       name = "BreezX-RosePine-Linux";
       size = 24;
