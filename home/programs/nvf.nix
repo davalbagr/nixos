@@ -23,10 +23,6 @@
       trouble.enable = true;
     };
 
-    ui = {
-      noice.enable = true;
-    };
-
     mini = {
       ai.enable = true;
       comment.enable = true;
