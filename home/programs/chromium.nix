@@ -10,5 +10,6 @@
     {id = "nngceckbapebfimnlniiiahkandclblb";}
     {id = "cjpalhdlnbpafiamejdnhcphjbkeiagm";}
     {id = "ocaahdebbfolfmndjeplogmgcagdmblk";}
+    {id = "dbepggeogbaibhgnhhndojpepiihcmeb";}
   ];
 }
