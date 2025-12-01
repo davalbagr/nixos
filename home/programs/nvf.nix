@@ -189,6 +189,12 @@
         action = '':Telescope git_files<CR>'';
         desc = "Search through files in git";
       }
+      {
+        key = "<leader>fk";
+        mode = ["n" "v"];
+        action = '':Telescope keymaps<CR>'';
+        desc = "Search through normal mode keymaps";
+      }
     ];
   };
 }
