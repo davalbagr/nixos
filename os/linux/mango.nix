@@ -26,7 +26,7 @@ in {
     bind=SUPER,k,focusdir,up
     bind=SUPER,l,focusdir,right
 
-    cursor_theme="BreezX-RosePine-Linux"
+    cursor_theme=BreezX-RosePine-Linux
     bordercolor=0x00000000
     # rootcolor=
     focuscolor=0xffc4a7e7
