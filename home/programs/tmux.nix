@@ -3,6 +3,7 @@
   clock24 = true;
   escapeTime = 0;
   mouse = true;
+  historyLimit = 10000;
   focusEvents = true;
   baseIndex = 1;
   disableConfirmationPrompt = true;
