@@ -114,8 +114,12 @@
 
   security.rtkit.enable = true;
   services = {
-    pipewire.enable = true;
-    pipewire.wireplumber.enable = true;
+    pipewire = {
+      enable = true;
+      wireplumber.enable = true;
+      alsa.enable = true;
+      pulse.enable = true;
+    };
     openssh.enable = true;
     libinput.touchpad.naturalScrolling = true;
     libinput.mouse.naturalScrolling = true;
