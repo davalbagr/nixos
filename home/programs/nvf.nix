@@ -186,9 +186,8 @@
       {
         key = "<leader>ff";
         mode = ["n" "v"];
-        action = ''function() require("telescope.builtin").find_files({hidden=true}) end'';
-        lua = true;
-        desc = "Find files including hidden";
+        action = '':Telescope git_files<CR>'';
+        desc = "Search through files in git";
       }
     ];
   };

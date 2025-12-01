@@ -34,7 +34,7 @@ in {
         heroku
         postman
         nix-your-shell
-        rose-pine-cursor
+        gh
       ]
       ++ (
         if pkgs.stdenv.system == "aarch64-linux"
