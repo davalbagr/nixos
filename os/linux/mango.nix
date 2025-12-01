@@ -94,6 +94,6 @@ in {
     env=QT_WAYLAND_FORCE_DPI,140
   '';
   autostart_sh = ''
-    swaybg -i ${wallpaper} & disown
+    swaybg -i ${wallpaper} &
   '';
 }
