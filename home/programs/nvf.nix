@@ -10,6 +10,12 @@
       style = "main";
       transparent = true;
     };
+    git = {
+      vim-fugitive.enable = true;
+      gitsigns = {
+        enable = true;
+      };
+    };
 
     lsp = {
       enable = true;
