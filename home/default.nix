@@ -23,9 +23,10 @@ in {
     stateVersion = "25.11";
     pointerCursor = {
       gtk.enable = pkgs.stdenv.isLinux;
+      x11.enable = true;
       name = "BreezX-RosePine-Linux";
       package = pkgs.rose-pine-cursor;
-      size = 14;
+      size = 24;
     };
 
     packages = with pkgs;
@@ -51,7 +52,14 @@ in {
     };
   };
 
-  gtk.enable = pkgs.stdenv.isLinux;
+  gtk = {
+    enable = pkgs.stdenv.isLinux;
+    cursorTheme = {
+      name = "BreezX-RosePine-Linux";
+      size = 24;
+      package = pkgs.rose-pine-cursor;
+    };
+  };
 
   programs = importDir "programs";
   services = importDir "services";
