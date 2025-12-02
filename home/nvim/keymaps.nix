@@ -101,34 +101,6 @@ _: {
       desc = "Git Stash";
     }
     {
-      key = "<leader>sgi";
-      mode = ["n" "v"];
-      action = "function() Snacks.picker.gh_issue() end";
-      lua = true;
-      desc = "GitHub Issues (open)";
-    }
-    {
-      key = "<leader>sgI";
-      mode = ["n" "v"];
-      action = "function() Snacks.picker.gh_issue({ state = \"all\" }) end";
-      lua = true;
-      desc = "GitHub Issues (all)";
-    }
-    {
-      key = "<leader>sgp";
-      mode = ["n" "v"];
-      action = "function() Snacks.picker.gh_pr() end";
-      lua = true;
-      desc = "GitHub Pull Requests (open)";
-    }
-    {
-      key = "<leader>sgP";
-      mode = ["n" "v"];
-      action = "function() Snacks.picker.gh_pr({ state = \"all\" }) end";
-      lua = true;
-      desc = "GitHub Pull Requests (all)";
-    }
-    {
       key = "<leader>sb";
       mode = ["n" "v"];
       action = "function() Snacks.picker.lines() end";
