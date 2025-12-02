@@ -19,7 +19,8 @@ in {
 
     bind=SUPER,Return,spawn,foot
     bind=SUPER,space,spawn,fuzzel
-    bind=SUPER,s,spawn,grim - | satty --filename -
+    bind=SUPER,s,spawn,grim -g "$(slurp)" - | wl-copy
+    bind=SUPER+SHIFT,s,spawn,grim - | satty --filename -
     bind=SUPER,c,spawn,wl-fzl | wl-copy
 
     bind=SUPER,h,focusdir,left
