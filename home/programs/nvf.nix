@@ -55,9 +55,7 @@
           bigfile.enabled = true;
           picker = {
             enabled = true;
-            icons = {
-              enabled = false;
-            };
+            icons.files.enabled = false;
           };
           gh.enabled = true;
         };

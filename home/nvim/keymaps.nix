@@ -66,13 +66,6 @@ _: {
       desc = "Command History";
     }
     {
-      key = "<leader>n";
-      mode = ["n" "v"];
-      action = "function() Snacks.picker.notifications() end";
-      lua = true;
-      desc = "Notification History";
-    }
-    {
       key = "<leader>fb";
       mode = ["n" "v"];
       action = "function() Snacks.picker.buffers() end";
@@ -94,91 +87,49 @@ _: {
       desc = "Find Git Files";
     }
     {
-      key = "<leader>fp";
-      mode = ["n" "v"];
-      action = "function() Snacks.picker.projects() end";
-      lua = true;
-      desc = "Projects";
-    }
-    {
-      key = "<leader>fr";
-      mode = ["n" "v"];
-      action = "function() Snacks.picker.recent() end";
-      lua = true;
-      desc = "Recent";
-    }
-    {
-      key = "<leader>gb";
+      key = "<leader>sgb";
       mode = ["n" "v"];
       action = "function() Snacks.picker.git_branches() end";
       lua = true;
       desc = "Git Branches";
     }
     {
-      key = "<leader>gl";
+      key = "<leader>sgl";
       mode = ["n" "v"];
       action = "function() Snacks.picker.git_log() end";
       lua = true;
       desc = "Git Log";
     }
     {
-      key = "<leader>gL";
-      mode = ["n" "v"];
-      action = "function() Snacks.picker.git_log_line() end";
-      lua = true;
-      desc = "Git Log Line";
-    }
-    {
-      key = "<leader>gs";
-      mode = ["n" "v"];
-      action = "function() Snacks.picker.git_status() end";
-      lua = true;
-      desc = "Git Status";
-    }
-    {
-      key = "<leader>gS";
+      key = "<leader>sgS";
       mode = ["n" "v"];
       action = "function() Snacks.picker.git_stash() end";
       lua = true;
       desc = "Git Stash";
     }
     {
-      key = "<leader>gd";
-      mode = ["n" "v"];
-      action = "function() Snacks.picker.git_diff() end";
-      lua = true;
-      desc = "Git Diff (Hunks)";
-    }
-    {
-      key = "<leader>gf";
-      mode = ["n" "v"];
-      action = "function() Snacks.picker.git_log_file() end";
-      lua = true;
-      desc = "Git Log File";
-    }
-    {
-      key = "<leader>gi";
+      key = "<leader>sgi";
       mode = ["n" "v"];
       action = "function() Snacks.picker.gh_issue() end";
       lua = true;
       desc = "GitHub Issues (open)";
     }
     {
-      key = "<leader>gI";
+      key = "<leader>sgI";
       mode = ["n" "v"];
       action = "function() Snacks.picker.gh_issue({ state = \"all\" }) end";
       lua = true;
       desc = "GitHub Issues (all)";
     }
     {
-      key = "<leader>gp";
+      key = "<leader>sgp";
       mode = ["n" "v"];
       action = "function() Snacks.picker.gh_pr() end";
       lua = true;
       desc = "GitHub Pull Requests (open)";
     }
     {
-      key = "<leader>gP";
+      key = "<leader>sgP";
       mode = ["n" "v"];
       action = "function() Snacks.picker.gh_pr({ state = \"all\" }) end";
       lua = true;
@@ -197,13 +148,6 @@ _: {
       action = "function() Snacks.picker.grep_buffers() end";
       lua = true;
       desc = "Grep Open Buffers";
-    }
-    {
-      key = "<leader>sg";
-      mode = ["n" "v"];
-      action = "function() Snacks.picker.grep() end";
-      lua = true;
-      desc = "Grep";
     }
     {
       key = "<leader>sw";
@@ -225,13 +169,6 @@ _: {
       action = "function() Snacks.picker.search_history() end";
       lua = true;
       desc = "Search History";
-    }
-    {
-      key = "<leader>sa";
-      mode = ["n" "v"];
-      action = "function() Snacks.picker.autocmds() end";
-      lua = true;
-      desc = "Autocmds";
     }
     {
       key = "<leader>sc";
