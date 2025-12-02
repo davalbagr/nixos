@@ -32,6 +32,12 @@ _: {
       desc = "Yank to system clipboard";
     }
     {
+      key = "<leader>Y";
+      mode = ["n" "v"];
+      action = ''"+Y'';
+      desc = "Yank to system clipboard (Y)";
+    }
+    {
       key = "<leader><space>";
       mode = ["n" "v"];
       action = "function() Snacks.picker.smart() end";
