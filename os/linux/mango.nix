@@ -19,7 +19,8 @@ in {
 
     bind=SUPER,Return,spawn,foot
     bind=SUPER,space,spawn,fuzzel
-    bind=SUPER,s,spawn,grim -l 0 -g "$(slurp)" - | wl-copy
+    bind=SUPER,s,spawn,grim - | satty --filename -
+    bind=SUPER,c,spawn,wl-fzl | wl-copy
 
     bind=SUPER,h,focusdir,left
     bind=SUPER,j,focusdir,down
@@ -76,7 +77,7 @@ in {
     exec-once=chromium
     exec-once=vesktop
     exec-once=${slack}
-    exec-once=wl-clip-persist --clipboard regular
+    exec-once=wl-paste --watch cliphist store
 
     windowrule=appid:chromium-browser,tags:2,isopensilent:1
     windowrule=appid:vesktop,tags:3,isopensilent:1

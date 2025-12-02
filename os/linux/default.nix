@@ -173,7 +173,8 @@
       slurp
       swaybg
       brightnessctl
-      wl-clip-persist
+      cliphist
+      satty
     ];
   };
 

@@ -39,5 +39,6 @@ _: {
     tl = "tmux list-sessions";
     tn = "tmux new-session -s";
     ta = "tmux attach-session";
+    wl-fzl = "cliphist list | fuzzel --dmenu --with-nth 2 | cliphist decode";
   };
 }
