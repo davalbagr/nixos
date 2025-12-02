@@ -89,7 +89,8 @@
       autoread = true;
       swapfile = false;
       termguicolors = true;
-      statusline = "%=%f";
+      statusline = "%{reg_recording()}%=%f";
+      cmdheight = 0;
     };
 
     languages = {
