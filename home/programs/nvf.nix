@@ -10,10 +10,7 @@
       style = "main";
       transparent = true;
     };
-    git = {
-      vim-fugitive.enable = true;
-      gitsigns.enable = true;
-    };
+    git.vim-fugitive.enable = true;
 
     lsp = {
       enable = true;
@@ -24,6 +21,7 @@
     mini = {
       ai.enable = true;
       basics.enable = true;
+      diff.enable = true;
       surround = {
         enable = true;
         setupOpts = {

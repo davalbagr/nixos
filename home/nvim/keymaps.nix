@@ -7,13 +7,6 @@ _: {
       desc = "Open Oil in parent directory";
     }
     {
-      key = "gh";
-      mode = ["n"];
-      action = "function() vim.lsp.buf.hover() end";
-      lua = true;
-      desc = "Show hover info";
-    }
-    {
       key = "<leader>sr";
       mode = ["n" "v"];
       action = ":GrugFar<CR>";
