@@ -8,13 +8,9 @@ _: {
 
   snacks-nvim = {
     enable = true;
-    setupOpts = {
-      bigfile.enabled = true;
-      picker = {
-        enabled = true;
-        icons.files.enabled = false;
-      };
-      gh.enabled = true;
+    setupOpts.picker = {
+      enabled = true;
+      icons.files.enabled = false;
     };
   };
 }
