@@ -269,13 +269,6 @@ _: {
       desc = "Help Pages";
     }
     {
-      key = "<leader>sH";
-      mode = ["n" "v"];
-      action = "function() Snacks.picker.highlights() end";
-      lua = true;
-      desc = "Highlights";
-    }
-    {
       key = "<leader>si";
       mode = ["n" "v"];
       action = "function() Snacks.picker.icons() end";
