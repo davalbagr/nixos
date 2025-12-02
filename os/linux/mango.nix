@@ -76,6 +76,7 @@ in {
     exec-once=chromium
     exec-once=vesktop
     exec-once=${slack}
+    exec-once=wl-clip-persist --clipboard regular
 
     windowrule=appid:chromium-browser,tags:2,isopensilent:1
     windowrule=appid:vesktop,tags:3,isopensilent:1
