@@ -48,7 +48,7 @@ _: {
     {
       key = "<leader>ff";
       mode = ["n" "v"];
-      action = ''function() Snacks.picker.files({ layout = { preset = "select" }}) end'';
+      action = ''function() Snacks.picker.files({ layout = { preset = "select" }, hidden=true}) end'';
       lua = true;
       desc = "Find Files";
     }
