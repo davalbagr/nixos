@@ -25,7 +25,7 @@ _: {
       desc = "Yank to system clipboard";
     }
     {
-      key = "<leader>fg";
+      key = "<leader>/";
       mode = ["n" "v"];
       action = "function() Snacks.picker.grep() end";
       lua = true;
@@ -46,7 +46,7 @@ _: {
       desc = "Buffers";
     }
     {
-      key = "<leader>ff";
+      key = "<leader><space>";
       mode = ["n" "v"];
       action = ''function() Snacks.picker.files({ layout = { preset = "select" }, hidden=true}) end'';
       lua = true;
