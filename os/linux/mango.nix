@@ -31,7 +31,7 @@ in {
     cursor_theme=BreezX-RosePine-Linux
     bordercolor=0x00000000
     # rootcolor=
-    focuscolor=0xffc4a7e7
+    focuscolor=0xc4a7e7ff
     # maximizescreencolor=
     # urgentcolor=
     # scratchpadcolor=
