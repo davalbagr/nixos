@@ -25,27 +25,7 @@ _: {
       desc = "Yank to system clipboard";
     }
     {
-      key = "<leader>Y";
-      mode = ["n" "v"];
-      action = ''"+Y'';
-      desc = "Yank to system clipboard (Y)";
-    }
-    {
-      key = "<leader><space>";
-      mode = ["n" "v"];
-      action = "function() Snacks.picker.smart() end";
-      lua = true;
-      desc = "Smart Find Files";
-    }
-    {
-      key = "<leader>,";
-      mode = ["n" "v"];
-      action = "function() Snacks.picker.buffers() end";
-      lua = true;
-      desc = "Buffers";
-    }
-    {
-      key = "<leader>/";
+      key = "<leader>fg";
       mode = ["n" "v"];
       action = "function() Snacks.picker.grep() end";
       lua = true;
@@ -68,16 +48,9 @@ _: {
     {
       key = "<leader>ff";
       mode = ["n" "v"];
-      action = "function() Snacks.picker.files() end";
+      action = ''function() Snacks.picker.files({ layout = { preset = "select" }}) end'';
       lua = true;
       desc = "Find Files";
-    }
-    {
-      key = "<leader>fg";
-      mode = ["n" "v"];
-      action = "function() Snacks.picker.git_files() end";
-      lua = true;
-      desc = "Find Git Files";
     }
     {
       key = "<leader>sgb";
