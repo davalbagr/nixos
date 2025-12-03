@@ -79,6 +79,7 @@ in {
     exec-once=vesktop
     exec-once=${slack}
     exec-once=wl-paste --watch cliphist store
+    exec-once=swaybg -i ${wallpaper}
 
     windowrule=appid:chromium-browser,tags:2,isopensilent:1
     windowrule=appid:vesktop,tags:3,isopensilent:1
@@ -95,8 +96,5 @@ in {
     env=QT_AUTO_SCREEN_SCALE_FACTOR,1
     env=QT_QPA_PLATFORM,Wayland;xcb
     env=QT_WAYLAND_FORCE_DPI,140
-  '';
-  autostart_sh = ''
-    swaybg -i ${wallpaper} &
   '';
 }
