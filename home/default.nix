@@ -76,7 +76,7 @@ in {
 
   xdg.desktopEntries.discord = {
     name = "Discord";
-    exec = ''librewolf --new-window "https://discord.com/channels/@me"'';
+    exec = ''chromium --new-window --app="https://discord.com/channels/@me"'';
     terminal = false;
     type = "Application";
   };

@@ -75,8 +75,8 @@ in {
     animations=0
     enable_hotarea=0
 
-    exec-once=librewolf
-    exec-once=discord
+    exec-once=chromium
+    exec-once=chromium --new-window --app="https://discord.com/channels/@me"
     exec-once=${slack}
     exec-once=wl-paste --watch cliphist store
     exec-once=swaybg -i ${wallpaper}
