@@ -75,7 +75,6 @@ in {
     animations=0
     enable_hotarea=0
 
-    exec-once=chromium
     exec-once=chromium --new-window --app="https://discord.com/channels/@me"
     exec-once=${slack}
     exec-once=wl-paste --watch cliphist store
