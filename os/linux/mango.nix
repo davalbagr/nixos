@@ -75,8 +75,8 @@ in {
     animations=0
     enable_hotarea=0
 
-    exec-once=chromium
-    exec-once=vesktop
+    exec-once=librewolf
+    exec-once=discord
     exec-once=${slack}
     exec-once=wl-paste --watch cliphist store
     exec-once=swaybg -i ${wallpaper}
@@ -96,5 +96,8 @@ in {
     env=QT_AUTO_SCREEN_SCALE_FACTOR,1
     env=QT_QPA_PLATFORM,Wayland;xcb
     env=QT_WAYLAND_FORCE_DPI,140
+
+    monitorrule=eDP-1,0.55,1,tile,0,1.5,0,0,2880,1800,120
+    monitorrule=HDMI-A-1,0.55,1,tile,0,1,2880,0,1920,1080,60
   '';
 }
