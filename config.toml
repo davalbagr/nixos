@@ -1,5 +1,5 @@
 hostname="nixos"
-system="aarch64-linux"
+system="x86_64-linux"
 username="davidagra"
-machine="24b55ba79fa5e6574fca0838211a5790f49fa0efb0fff7b839e3c520c798bdc0"
-patches = []
+machine="8d9ac24e83636a12a948386143fad969045b7d49ba2547a69f62b2525b3d1bab"
+patches=["intel-wifi", "intel-graphics"]
