@@ -82,7 +82,7 @@ in {
     exec-once=swaybg -i ${wallpaper}
 
     windowrule=appid:chromium-browser,tags:2,isopensilent:1
-    windowrule=appid:vesktop,tags:3,isopensilent:1
+    windowrule=appid:discord,tags:3,isopensilent:1
     windowrule=appid:${slack},tags:4,isopensilent:1
 
     cursor_size=24
@@ -97,7 +97,7 @@ in {
     env=QT_QPA_PLATFORM,Wayland;xcb
     env=QT_WAYLAND_FORCE_DPI,140
 
-    monitorrule=eDP-1,0.55,1,tile,0,1.5,0,0,2880,1800,120
+    monitorrule=eDP-1,0.55,1,tile,0,2,0,0,2880,1800,120
     monitorrule=HDMI-A-1,0.55,1,tile,0,1,2880,0,1920,1080,60
   '';
 }
