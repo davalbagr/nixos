@@ -73,4 +73,11 @@ in {
   services = importDir "services";
 
   wayland.windowManager.mango = import ../os/linux/mango.nix {inherit pkgs inputs;};
+
+  xdg.desktopEntries.discord = {
+    name = "Discord";
+    exec = ''librewolf --new-window "https://discord.com/channels/@me"'';
+    terminal = false;
+    type = "Application";
+  };
 }
