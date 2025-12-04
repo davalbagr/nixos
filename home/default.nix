@@ -35,6 +35,7 @@ in {
         postman
         nix-your-shell
         gh
+        devcontainer
       ]
       ++ (
         if pkgs.stdenv.system == "aarch64-linux"
