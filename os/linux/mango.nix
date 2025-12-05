@@ -72,13 +72,20 @@ in {
     bind=SUPER,8,view,8
     bind=SUPER,9,view,9
 
+    bind=None,XF86AudioRaiseVolume,spawn,wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
+    bind=None,XF86AudioLowerVolume,spawn,wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
+    bind=None,XF86AudioMute,spawn,wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+    bindl=None,XF86MonBrightnessUp,spawn,brightnessctl -s set +2%
+    bindl=None,XF86MonBrightnessDown,spawn,brightnessctl -s set 2%-
+
     animations=0
     enable_hotarea=0
 
     exec-once=chromium --new-window --app="https://discord.com/channels/@me"
     exec-once=${slack}
-    exec-once=wl-paste --watch cliphist store
+    exec-once=wl-paste --watch cliphist store &
     exec-once=swaybg -i ${wallpaper}
+    exec-once=dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=wlroots
 
     windowrule=appid:chromium-browser,tags:2,isopensilent:1
     windowrule=appid:discord,tags:3,isopensilent:1
