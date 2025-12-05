@@ -103,7 +103,8 @@ in {
     env=QT_QPA_PLATFORM,Wayland;xcb
     env=QT_WAYLAND_FORCE_DPI,140
 
-    monitorrule=eDP-1,0.55,1,tile,0,2,0,0,2880,1800,120
-    monitorrule=HDMI-A-1,0.55,1,tile,0,1,2880,0,1920,1080,60
+    monitorrule=eDP-1,0.55,1,tile,0,1,0,0,2560,1440,120
+    # monitorrule=HDMI-A-1,0.55,1,tile,0,1,2880,0,1920,1080,60
+    monitorrule=HDMI-A-1,0.55,1,tile,0,2,0,0,2560,1440,180
   '';
 }
