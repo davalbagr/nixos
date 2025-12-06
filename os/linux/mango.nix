@@ -3,11 +3,6 @@
   inputs,
   ...
 }: let
-  slack =
-    if pkgs.stdenv.hostPlatform.system == "aarch64-linux"
-    then "slacky"
-    else "Slack";
-
   wallpaper = "${inputs.self}/wallpaper.png";
 in {
   enable = pkgs.stdenv.isLinux;
@@ -82,14 +77,14 @@ in {
     enable_hotarea=0
 
     exec-once=chromium --new-window --app="https://discord.com/channels/@me"
-    exec-once=${slack}
+    exec-once=slack
     exec-once=wl-paste --watch cliphist store
     exec-once=swaybg -i ${wallpaper}
     exec-once=dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=wlroots
 
     windowrule=appid:chromium-browser,tags:2,isopensilent:1
     windowrule=appid:discord,tags:3,isopensilent:1
-    windowrule=appid:${slack},tags:4,isopensilent:1
+    windowrule=appid:Slack,tags:4,isopensilent:1
 
     cursor_size=24
     env=XCURSOR_SIZE,24
