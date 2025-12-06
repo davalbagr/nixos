@@ -18,20 +18,20 @@
       diff.enable = true;
       surround.enable = true;
     };
-    utility = {
-      oil-nvim = {
-        enable = true;
-        setupOpts.watch_for_changes = true;
-      };
 
-      snacks-nvim = {
-        enable = true;
-        setupOpts.picker = {
-          enabled = true;
-          icons.files.enabled = false;
-        };
+    utility.oil-nvim = {
+      enable = true;
+      setupOpts.watch_for_changes = true;
+    };
+
+    utility.snacks-nvim = {
+      enable = true;
+      setupOpts.picker = {
+        enabled = true;
+        icons.files.enabled = false;
       };
     };
+
     languages = import ../nvim/languages.nix { };
     options = import ../nvim/options.nix { };
     inherit (import ../nvim/keymaps.nix { }) keymaps;
