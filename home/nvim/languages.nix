@@ -8,7 +8,7 @@ _: {
   ts.enable = true;
   yaml.enable = true;
   ruby.enable = true;
-  ruby.lsp.servers = ["ruby_lsp"];
+  ruby.lsp.servers = [ "ruby_lsp" ];
 
   enableExtraDiagnostics = true;
   enableFormat = true;

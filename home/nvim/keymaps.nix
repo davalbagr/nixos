@@ -13,6 +13,13 @@ _: {
       desc = "Search and Replace";
     }
     {
+      key = "<leader>cf";
+      mode = ["n" "v"];
+      action = ''function() vim.lsp.buf.format() end'';
+      lua = true;
+      desc = "Format buffer";
+    }
+    {
       key = "<leader>p";
       mode = ["n" "v"];
       action = ''"+p'';

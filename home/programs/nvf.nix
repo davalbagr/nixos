@@ -24,11 +24,7 @@
       transparent = true;
     };
 
-    lsp = {
-      enable = true;
-      formatOnSave = true;
-      trouble.enable = true;
-    };
+    lsp.enable = true;
 
     searchCase = "smart";
   };

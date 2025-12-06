@@ -9,6 +9,6 @@ _: rec {
   autoread = true;
   swapfile = false;
   termguicolors = true;
-  statusline = "%{reg_recording()}%=%f";
+  statusline = "%{reg_recording()}%=%{fnamemodify(expand('%:p'),':h:t')}/%t";
   cmdheight = 0;
 }
