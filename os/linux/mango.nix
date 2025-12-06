@@ -6,7 +6,7 @@
   slack =
     if pkgs.stdenv.hostPlatform.system == "aarch64-linux"
     then "slacky"
-    else "slack";
+    else "Slack";
 
   wallpaper = "${inputs.self}/wallpaper.png";
 in {
