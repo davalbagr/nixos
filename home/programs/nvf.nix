@@ -11,7 +11,13 @@
       grug-far.package = pkgs.vimPlugins.grug-far-nvim;
     };
 
-    utility.yazi-nvim.enable = true;
+    utility = {
+      yazi-nvim.enable = true;
+      snacks-nvim = {
+        enable = true;
+        setupOpts.lazygit.enable = true;
+      };
+    };
 
     mini = {
       ai.enable = true;
