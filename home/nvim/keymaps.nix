@@ -6,7 +6,7 @@ _: {
         "n"
         "v"
       ];
-      action = "function() MiniFiles.open() end";
+      action = "function() MiniFiles.open(vim.api.nvim_buf_get_name(0), false) end";
       lua = true;
       desc = "Open Oil in parent directory";
     }
