@@ -175,6 +175,7 @@
       brightnessctl
       cliphist
       satty
+      wlr-randr
     ];
   };
 

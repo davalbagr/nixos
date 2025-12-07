@@ -81,6 +81,7 @@ in {
     exec-once=swaybg -i ${wallpaper}
     exec-once=dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=wlroots
     exec-once=dunst
+    exec-once=wlr-randr --output eDP-1 --custom-mode 2560x1440@120Hz --scale 1
 
     windowrule=appid:chromium-browser,tags:2,isopensilent:1
     windowrule=appid:discord,tags:3,isopensilent:1
@@ -98,8 +99,5 @@ in {
     env=QT_AUTO_SCREEN_SCALE_FACTOR,1
     env=QT_QPA_PLATFORM,Wayland;xcb
     env=QT_WAYLAND_FORCE_DPI,140
-    xkb_rules_options=caps:swapescape,ctrl:menu_rctrl
-
-    monitorrule=eDP-1,0.55,1,tile,0,1,0,0,2560,1440,120
   '';
 }
