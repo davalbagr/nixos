@@ -9,7 +9,7 @@ _: {
       action = ":Yazi<CR>";
       desc = "Open Yazi in current directory";
     }
-        {
+    {
       key = "<leader>E";
       mode = [
         "n"
