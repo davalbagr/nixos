@@ -3,7 +3,6 @@
   enable = true;
   settings.vim = {
     git.vim-fugitive.enable = true;
-    autocomplete.blink-cmp.enable = true;
 
     extraPlugins = {
       neotest.package = pkgs.vimPlugins.neotest;
