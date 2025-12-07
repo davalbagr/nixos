@@ -7,6 +7,15 @@ _: {
       desc = "Clear search highlight";
     }
     {
+      key = "<leader>e";
+      mode = [
+        "n"
+        "v"
+      ];
+      action = ":Explore<CR>";
+      desc = "Open file explorer";
+    }
+    {
       key = "<leader>sr";
       mode = [
         "n"
