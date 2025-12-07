@@ -17,32 +17,37 @@
     };
   };
 
-  outputs = inputs @ {
-    self,
-    nixpkgs,
-    home-manager,
-    mango,
-    ...
-  }: let
-    cfg = builtins.fromTOML (builtins.readFile "${self}/config.toml");
-    inherit (cfg) hostname machine system username;
-    pkgs = nixpkgs.legacyPackages.${system};
-    patches = map (name: import "${self}/patches/${name}.nix") (
-      if pkgs.lib.attrsets.hasAttrByPath ["patches"] cfg
-      then cfg.patches
-      else []
-    );
-  in {
-    nixosConfigurations.${hostname} = nixpkgs.lib.nixosSystem {
-      inherit (pkgs.stdenv) system;
+  outputs =
+    inputs@{
+      self,
+      nixpkgs,
+      home-manager,
+      mango,
+      ...
+    }:
+    let
+      cfg = builtins.fromTOML (builtins.readFile "${self}/config.toml");
+      inherit (cfg)
+        hostname
+        machine
+        system
+        username
+        ;
+      pkgs = nixpkgs.legacyPackages.${system};
+      patches = map (name: import "${self}/patches/${name}.nix") (
+        if pkgs.lib.attrsets.hasAttrByPath [ "patches" ] cfg then cfg.patches else [ ]
+      );
+    in
+    {
+      nixosConfigurations.${hostname} = nixpkgs.lib.nixosSystem {
+        inherit (pkgs.stdenv) system;
 
-      specialArgs = {
-        inherit inputs username;
-        configDir = self;
-      };
+        specialArgs = {
+          inherit inputs username;
+          configDir = self;
+        };
 
-      modules =
-        [
+        modules = [
           home-manager.nixosModules.default
           mango.nixosModules.mango
 
@@ -50,6 +55,6 @@
           ./machines/${machine}.nix
         ]
         ++ patches;
+      };
     };
-  };
 }
