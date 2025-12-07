@@ -42,7 +42,6 @@ in
       [
         heroku
         postman
-        nix-your-shell
         gh
         ffmpeg
         resvg

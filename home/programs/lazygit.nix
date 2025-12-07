@@ -41,5 +41,5 @@ _: {
       "#e0def4"
     ];
   };
-  enableFishIntegration = true;
+  enableBashIntegration = true;
 }

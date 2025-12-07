@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
   enable = true;
-  enableFishIntegration = true;
+  enableBashIntegration = true;
   flavors.rose-pine = pkgs.fetchFromGitHub {
     owner = "Mintass";
     repo = "rose-pine.yazi";

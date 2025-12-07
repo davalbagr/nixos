@@ -1,6 +1,6 @@
 _: {
-  enable = true;
-  enableFishIntegration = true;
+  enable = false;
+  enableBashIntegration = true;
   settings = {
     elm = {
       style = "bg:overlay fg:pine";

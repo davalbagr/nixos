@@ -4,7 +4,8 @@
   username,
   config,
   ...
-}: {
+}:
+{
   nix.settings = {
     experimental-features = [
       "nix-command"
@@ -79,22 +80,11 @@
     };
     dconf.enable = true;
 
-    bash = {
-      enable = true;
-      interactiveShellInit = ''
-        if [[ $(${pkgs.procps}/bin/ps --no-header --pid=$PPID --format=comm) != "fish" && -z ''${BASH_EXECUTION_STRING} ]]
-        then
-          shopt -q login_shell && LOGIN_OPTION='--login' || LOGIN_OPTION=""
-          exec ${pkgs.fish}/bin/fish $LOGIN_OPTION
-        fi
-      '';
-    };
-
     mango.enable = true;
 
     foot = {
       enable = true;
-      enableFishIntegration = true;
+      enableBashIntegration = true;
       theme = "rose-pine";
       settings = {
         bell = {
@@ -147,7 +137,7 @@
         username
         ;
     };
-    extraSpecialArgs = {inherit inputs;};
+    extraSpecialArgs = { inherit inputs; };
     overwriteBackup = true;
   };
 
