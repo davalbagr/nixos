@@ -19,11 +19,7 @@
       pick.enable = true;
       extra.enable = true;
       icons.enable = true;
-    };
-
-    utility.oil-nvim = {
-      enable = true;
-      setupOpts.watch_for_changes = true;
+      files.enable = true;
     };
 
     languages = import ../nvim/languages.nix { };

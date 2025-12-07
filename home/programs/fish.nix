@@ -31,7 +31,6 @@ _: {
     n = "nvim";
     lzd = "lazydocker";
     lzg = "lazygit";
-    r = "rails";
     hrc = "heroku run console";
     g = "git";
     cl = "clear";
@@ -40,5 +39,6 @@ _: {
     tn = "tmux new-session -s";
     ta = "tmux attach-session";
     wl-fzl = "cliphist list | fuzzel --dmenu --with-nth 2 | cliphist decode";
+    yz = "yazi";
   };
 }

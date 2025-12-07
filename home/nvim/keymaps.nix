@@ -6,7 +6,8 @@ _: {
         "n"
         "v"
       ];
-      action = ":Oil<CR>";
+      action = "function() MiniFiles.open() end";
+      lua = true;
       desc = "Open Oil in parent directory";
     }
     {
