@@ -58,7 +58,7 @@ _: {
         "n"
         "v"
       ];
-      action = "function() Snacks.picker.grep() end";
+      action = "function() MiniPick.builtin.grep_live() end";
       lua = true;
       desc = "Grep";
     }
@@ -68,7 +68,7 @@ _: {
         "n"
         "v"
       ];
-      action = "function() Snacks.picker.command_history() end";
+      action = "function() MiniExtra.pickers.history({ scope = ':' }) end";
       lua = true;
       desc = "Command History";
     }
@@ -78,7 +78,7 @@ _: {
         "n"
         "v"
       ];
-      action = "function() Snacks.picker.buffers() end";
+      action = "function() MiniPick.builtin.buffers() end";
       lua = true;
       desc = "Buffers";
     }
@@ -88,7 +88,7 @@ _: {
         "n"
         "v"
       ];
-      action = ''function() Snacks.picker.files({ layout = { preset = "select" }, hidden=true}) end'';
+      action = ''function() MiniPick.builtin.files() end'';
       lua = true;
       desc = "Find Files";
     }
@@ -98,7 +98,7 @@ _: {
         "n"
         "v"
       ];
-      action = "function() Snacks.picker.git_branches() end";
+      action = "function() MiniExtra.pickers.git_branches() end";
       lua = true;
       desc = "Git Branches";
     }
@@ -108,7 +108,7 @@ _: {
         "n"
         "v"
       ];
-      action = "function() Snacks.picker.git_log() end";
+      action = "function() MiniExtra.pickers.git_log() end";
       lua = true;
       desc = "Git Log";
     }
@@ -118,7 +118,7 @@ _: {
         "n"
         "v"
       ];
-      action = "function() Snacks.picker.git_stash() end";
+      action = "function() MiniExtra.pickers.git_stash() end";
       lua = true;
       desc = "Git Stash";
     }
@@ -128,19 +128,9 @@ _: {
         "n"
         "v"
       ];
-      action = "function() Snacks.picker.lines() end";
+      action = "function() MiniExtra.pickers.buf_lines() end";
       lua = true;
       desc = "Buffer Lines";
-    }
-    {
-      key = "<leader>sB";
-      mode = [
-        "n"
-        "v"
-      ];
-      action = "function() Snacks.picker.grep_buffers() end";
-      lua = true;
-      desc = "Grep Open Buffers";
     }
     {
       key = "<leader>sw";
@@ -149,7 +139,7 @@ _: {
         "x"
         "v"
       ];
-      action = "function() Snacks.picker.grep_word() end";
+      action = "function() MiniPick.builtin.grep({ pattern = vim.fn.expand('<cword>') }) end";
       lua = true;
       desc = "Visual selection or word";
     }
@@ -159,7 +149,7 @@ _: {
         "n"
         "v"
       ];
-      action = "function() Snacks.picker.registers() end";
+      action = "function() MiniExtra.pickers.registers() end";
       lua = true;
       desc = "Registers";
     }
@@ -169,19 +159,9 @@ _: {
         "n"
         "v"
       ];
-      action = "function() Snacks.picker.search_history() end";
+      action = "function() MiniExtra.pickers.history({ scope = '/' }) end";
       lua = true;
       desc = "Search History";
-    }
-    {
-      key = "<leader>sc";
-      mode = [
-        "n"
-        "v"
-      ];
-      action = "function() Snacks.picker.command_history() end";
-      lua = true;
-      desc = "Command History";
     }
     {
       key = "<leader>sC";
@@ -189,7 +169,7 @@ _: {
         "n"
         "v"
       ];
-      action = "function() Snacks.picker.commands() end";
+      action = "function() MiniExtra.pickers.commands() end";
       lua = true;
       desc = "Commands";
     }
@@ -199,7 +179,7 @@ _: {
         "n"
         "v"
       ];
-      action = "function() Snacks.picker.diagnostics() end";
+      action = "function() MiniExtra.pickers.diagnostic() end";
       lua = true;
       desc = "Diagnostics";
     }
@@ -209,7 +189,7 @@ _: {
         "n"
         "v"
       ];
-      action = "function() Snacks.picker.diagnostics_buffer() end";
+      action = "function() MiniExtra.pickers.diagnostic({ scope = 'current' }) end";
       lua = true;
       desc = "Buffer Diagnostics";
     }
@@ -219,19 +199,9 @@ _: {
         "n"
         "v"
       ];
-      action = "function() Snacks.picker.help() end";
+      action = "function() MiniPick.builtin.help() end";
       lua = true;
       desc = "Help Pages";
-    }
-    {
-      key = "<leader>si";
-      mode = [
-        "n"
-        "v"
-      ];
-      action = "function() Snacks.picker.icons() end";
-      lua = true;
-      desc = "Icons";
     }
     {
       key = "<leader>sj";
@@ -239,9 +209,9 @@ _: {
         "n"
         "v"
       ];
-      action = "function() Snacks.picker.jumps() end";
+      action = "function() MiniExtra.pickers.list({ scope = 'jump' }) end";
       lua = true;
-      desc = "Jumps";
+      desc = "Search Jumplist";
     }
     {
       key = "<leader>sk";
@@ -249,7 +219,7 @@ _: {
         "n"
         "v"
       ];
-      action = "function() Snacks.picker.keymaps() end";
+      action = "function() MiniExtra.pickers.keymaps() end";
       lua = true;
       desc = "Keymaps";
     }
@@ -259,7 +229,7 @@ _: {
         "n"
         "v"
       ];
-      action = "function() Snacks.picker.loclist() end";
+      action = "function() MiniExtra.pickers.list({ scope = 'location' }) end";
       lua = true;
       desc = "Location List";
     }
@@ -269,19 +239,9 @@ _: {
         "n"
         "v"
       ];
-      action = "function() Snacks.picker.marks() end";
+      action = "function() MiniExtra.pickers.marks() end";
       lua = true;
       desc = "Marks";
-    }
-    {
-      key = "<leader>sM";
-      mode = [
-        "n"
-        "v"
-      ];
-      action = "function() Snacks.picker.man() end";
-      lua = true;
-      desc = "Man Pages";
     }
     {
       key = "<leader>sq";
@@ -289,7 +249,7 @@ _: {
         "n"
         "v"
       ];
-      action = "function() Snacks.picker.qflist() end";
+      action = "function() MiniExtra.pickers.list({ scope = 'quickfix' }) end";
       lua = true;
       desc = "Quickfix List";
     }
@@ -299,7 +259,7 @@ _: {
         "n"
         "v"
       ];
-      action = "function() Snacks.picker.resume() end";
+      action = "function() MiniExtra.builtin.resume() end";
       lua = true;
       desc = "Resume";
     }
@@ -309,7 +269,7 @@ _: {
         "n"
         "v"
       ];
-      action = "function() Snacks.picker.undo() end";
+      action = "function() MiniExtra.pickers.list({ scope = 'change' }) end";
       lua = true;
       desc = "Undo History";
     }
@@ -319,7 +279,7 @@ _: {
         "n"
         "v"
       ];
-      action = "function() Snacks.picker.lsp_definitions() end";
+      action = "function() MiniExtra.pickers.lsp({ scope = 'definition' }) end";
       lua = true;
       desc = "Goto Definition";
     }
@@ -329,7 +289,7 @@ _: {
         "n"
         "v"
       ];
-      action = "function() Snacks.picker.lsp_declarations() end";
+      action = "function() MiniExtra.pickers.lsp({ scope = 'declaration' }) end";
       lua = true;
       desc = "Goto Declaration";
     }
@@ -339,7 +299,7 @@ _: {
         "n"
         "v"
       ];
-      action = "function() Snacks.picker.lsp_references() end";
+      action = "function() MiniExtra.pickers.lsp({ scope = 'references' }) end";
       lua = true;
       desc = "References";
     }
@@ -349,7 +309,7 @@ _: {
         "n"
         "v"
       ];
-      action = "function() Snacks.picker.lsp_implementations() end";
+      action = "function() MiniExtra.pickers.lsp({ scope = 'implementation' }) end";
       lua = true;
       desc = "Goto Implementation";
     }
@@ -359,29 +319,9 @@ _: {
         "n"
         "v"
       ];
-      action = "function() Snacks.picker.lsp_type_definitions() end";
+      action = "function() MiniExtra.pickers.lsp({ scope = 'definition' }) end";
       lua = true;
       desc = "Goto T[y]pe Definition";
-    }
-    {
-      key = "gai";
-      mode = [
-        "n"
-        "v"
-      ];
-      action = "function() Snacks.picker.lsp_incoming_calls() end";
-      lua = true;
-      desc = "C[a]lls Incoming";
-    }
-    {
-      key = "gao";
-      mode = [
-        "n"
-        "v"
-      ];
-      action = "function() Snacks.picker.lsp_outgoing_calls() end";
-      lua = true;
-      desc = "C[a]lls Outgoing";
     }
     {
       key = "<leader>ss";
@@ -389,7 +329,7 @@ _: {
         "n"
         "v"
       ];
-      action = "function() Snacks.picker.lsp_symbols() end";
+      action = "function() MiniExtra.pickers.lsp({ scope = 'document_symbols' }) end";
       lua = true;
       desc = "LSP Symbols";
     }
@@ -399,7 +339,7 @@ _: {
         "n"
         "v"
       ];
-      action = "function() Snacks.picker.lsp_workspace_symbols() end";
+      action = "function() MiniExtra.pickers.lsp({ scope = 'workspace_symbol' }) end";
       lua = true;
       desc = "LSP Workspace Symbols";
     }
