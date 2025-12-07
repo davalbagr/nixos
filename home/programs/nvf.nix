@@ -11,8 +11,6 @@
       grug-far.package = pkgs.vimPlugins.grug-far-nvim;
     };
 
-    utility.yazi-nvim.enable = true;
-
     mini = {
       ai.enable = true;
       basics.enable = true;
