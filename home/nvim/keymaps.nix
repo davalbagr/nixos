@@ -6,9 +6,17 @@ _: {
         "n"
         "v"
       ];
-      action = "function() MiniFiles.open(vim.api.nvim_buf_get_name(0), false) end";
-      lua = true;
-      desc = "Open Oil in parent directory";
+      action = ":Yazi<CR>";
+      desc = "Open Yazi in current directory";
+    }
+        {
+      key = "<leader>E";
+      mode = [
+        "n"
+        "v"
+      ];
+      action = ":Yazi cwd<CR>";
+      desc = "Open Yazi in working directory";
     }
     {
       key = "<Esc>";
