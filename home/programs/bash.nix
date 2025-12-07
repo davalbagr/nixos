@@ -8,7 +8,6 @@ _: {
       	--color=border:#403d52,header:#31748f,gutter:#191724
       	--color=spinner:#f6c177,info:#9ccfd8
       	--color=pointer:#c4a7e7,marker:#eb6f92,prompt:#908caa"
-    export PS0="\e[2 q\2"
     export EDITOR="nvim"
     export VISUAL="nvim"
     set -o vi
