@@ -1,24 +1,6 @@
 _: {
   keymaps = [
     {
-      key = "<leader>e";
-      mode = [
-        "n"
-        "v"
-      ];
-      action = ":Yazi<CR>";
-      desc = "Open Yazi in current directory";
-    }
-    {
-      key = "<leader>E";
-      mode = [
-        "n"
-        "v"
-      ];
-      action = ":Yazi cwd<CR>";
-      desc = "Open Yazi in working directory";
-    }
-    {
       key = "<Esc>";
       mode = [ "n" ];
       action = ":noh<CR>";
