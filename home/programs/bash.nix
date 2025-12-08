@@ -3,7 +3,6 @@ _: {
 
   initExtra = ''
     source $HOME/.profile
-    set -o vi
   '';
 
   sessionVariables = {
