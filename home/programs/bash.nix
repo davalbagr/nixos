@@ -2,10 +2,14 @@ _: {
   enable = true;
 
   initExtra = ''
-    export EDITOR="nvim"
-    export VISUAL="nvim"
+    source $HOME/.profile
     set -o vi
   '';
+
+  sessionVariables = {
+    EDITOR = "nvim";
+    VISUAL = "nvim";
+  };
 
   shellAliases = {
     n = "nvim";
