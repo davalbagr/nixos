@@ -12,7 +12,6 @@ in {
     bind=SUPER,n,switch_layout
     bind=SUPER,r,reload_config
 
-    bind=SUPER,Return,spawn,foot
     bind=SUPER,space,spawn,fuzzel
     bind=SUPER,s,spawn,grim -g "$(slurp)" - | wl-copy
     bind=SUPER+SHIFT,s,spawn,grim - | satty --filename -

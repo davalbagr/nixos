@@ -79,27 +79,7 @@
       clean.extraArgs = "--keep 3";
     };
     dconf.enable = true;
-
     mango.enable = true;
-
-    foot = {
-      enable = true;
-      enableBashIntegration = true;
-      theme = "rose-pine";
-      settings = {
-        bell = {
-          system = "no";
-        };
-        main = {
-          term = "xterm-256color";
-          font-size-adjustment = 2;
-          font = "JetBrainsMonoNerdFont:size=16";
-        };
-        mouse = {
-          hide-when-typing = "yes";
-        };
-      };
-    };
   };
 
   security.rtkit.enable = true;
