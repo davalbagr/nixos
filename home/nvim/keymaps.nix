@@ -259,7 +259,7 @@ _: {
         "n"
         "v"
       ];
-      action = "function() MiniExtra.builtin.resume() end";
+      action = "function() MiniPick.builtin.resume() end";
       lua = true;
       desc = "Resume";
     }

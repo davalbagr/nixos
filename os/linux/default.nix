@@ -73,6 +73,7 @@
   };
 
   programs = {
+    nix-ld.enable = true;
     nh = {
       enable = true;
       clean.enable = true;
