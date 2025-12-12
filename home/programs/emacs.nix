@@ -25,5 +25,6 @@ _:
     (global-set-key (kbd "s-[") #'next-buffer)
     (global-set-key (kbd "s-]") #'previous-buffer)
     (add-hook 'dired-mode-hook #'dired-hide-details-mode)
+    (global-auto-revert-mode 1)
   '';
 }
