@@ -343,5 +343,106 @@ _: {
       lua = true;
       desc = "LSP Workspace Symbols";
     }
+    {
+      key = "<Leader>tr";
+      mode = [ "n" ];
+      action = ''
+        function() require("neotest").run.run() end
+      '';
+      lua = true;
+      desc = "Run Nearest Test";
+    }
+    {
+      key = "<Leader>tf";
+      mode = [ "n" ];
+      action = ''
+        function() require("neotest").run.run(vim.fn.expand("%")) end
+      '';
+      lua = true;
+      desc = "Run File Tests";
+    }
+    {
+      key = "<Leader>tl";
+      mode = [ "n" ];
+      action = ''
+        function() require("neotest").run.run_last() end
+      '';
+      lua = true;
+      desc = "Run Last Test";
+    }
+    {
+      key = "<Leader>td";
+      mode = [ "n" ];
+      action = ''
+        function() require("neotest").run.run({ strategy = "dap" }) end
+      '';
+      lua = true;
+      desc = "Debug Nearest Test";
+    }
+    {
+      key = "<Leader>ts";
+      mode = [ "n" ];
+      action = ''
+        function() require("neotest").run.stop() end
+      '';
+      lua = true;
+      desc = "Stop Test";
+    }
+
+    # === UI and Navigation Mappings ===
+    {
+      key = "<Leader>tS";
+      mode = [ "n" ];
+      action = ''
+        function() require("neotest").summary.toggle() end
+      '';
+      lua = true;
+      desc = "Toggle Test Summary";
+    }
+    {
+      key = "<Leader>to";
+      mode = [ "n" ];
+      action = ''
+        function() require("neotest").output.open({ enter = true }) end
+      '';
+      lua = true;
+      desc = "Open Test Output";
+    }
+    {
+      key = "[t";
+      mode = [ "n" ];
+      action = ''
+        function() require("neotest").jump.next({ status = "failed" }) end
+      '';
+      lua = true;
+      desc = "Next Test Failure";
+    }
+    {
+      key = "]t";
+      mode = [ "n" ];
+      action = ''
+        function() require("neotest").jump.prev({ status = "failed" }) end
+      '';
+      lua = true;
+      desc = "Prev Test Failure";
+    }
+    {
+      key = "[T";
+      mode = [ "n" ];
+      action = ''
+        function() require("neotest").jump.next() end
+      '';
+      lua = true;
+      desc = "Next Test";
+    }
+    {
+      key = "]T";
+      mode = [ "n" ];
+      action = ''
+        function() require("neotest").jump.prev() end
+      '';
+      lua = true;
+      desc = "Prev Test";
+    }
   ];
 }
