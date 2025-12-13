@@ -8,7 +8,7 @@ _: {
       lsp.display-messages = true;
       mouse = false;
       file-picker = {
-        hidden = true;
+        hidden = false;
       };
       cursor-shape = {
         insert = "bar";
