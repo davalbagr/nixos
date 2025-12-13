@@ -46,6 +46,7 @@ in
         ffmpeg
         resvg
         poppler
+        scooter
         devcontainer
       ]
       ++ (if pkgs.stdenv.system == "aarch64-linux" then [ slacky ] else [ slack ]);
