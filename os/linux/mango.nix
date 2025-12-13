@@ -75,8 +75,8 @@ in {
     enable_hotarea=0
 
     exec-once=chromium --new-window --app="https://discord.com/channels/@me"
-    exec-once=emacs
     exec-once=slack
+    exec-once=emacs
     exec-once=wl-paste --watch cliphist store
     exec-once=swaybg -i ${wallpaper}
     exec-once=dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=wlroots
@@ -85,8 +85,8 @@ in {
 
     windowrule=appid:chromium-browser,tags:2,isopensilent:1
     windowrule=appid:discord,tags:3,isopensilent:1
-    windowrule=appid:emacs,tags:1,isopensilent:1
     windowrule=appid:Slack,tags:4,isopensilent:1
+    windowrule=appid:emacs,tags:1,isopensilent:1
 
     cursor_theme=BreezX-RosePine-Linux
     cursor_size=24
