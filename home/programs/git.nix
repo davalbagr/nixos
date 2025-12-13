@@ -12,7 +12,6 @@ _: {
     commit = {
       gpgsign = true;
     };
-    merge.tool = "nvimdiff";
     init.defaultBranch = "main";
     pull.rebase = true;
   };
