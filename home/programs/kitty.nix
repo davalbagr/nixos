@@ -1,10 +1,14 @@
 _: {
   enable = true;
   enableGitIntegration = true;
-  shellIntegration.enableBashIntegration = true;
+  shellIntegration = {
+    enableBashIntegration = true;
+    mode = "no-cursor";
+  };
   themeFile = "rose-pine";
   settings = {
     enable_audio_bell = false;
+    cursor_blink_interval = 0;
   };
   extraConfig = ''
     map alt+1 goto_tab 1

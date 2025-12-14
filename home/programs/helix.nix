@@ -11,7 +11,7 @@ _: {
         hidden = false;
       };
       cursor-shape = {
-        insert = "bar";
+        insert = "block";
         normal = "block";
         select = "underline";
       };
@@ -53,6 +53,7 @@ _: {
     # "ui.cursor.select" = {}
     "ui.cursor.match" = { fg = "text", bg = "highlight_med" }
     "ui.cursor.primary" = { fg = "text", bg = "muted" }
+    "ui.cursor.primary.insert" = { fg = "text", bg = "iris" }
 
     # "ui.gutter" = {}
     # "ui.gutter.selected" = {}
