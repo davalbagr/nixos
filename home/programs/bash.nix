@@ -15,7 +15,6 @@ _: {
     lzg = "lazygit";
     hrc = "heroku run console";
     g = "git";
-    cl = "clear";
     ls = "eza -lh --group-directories-first --icons";
     wl-fzl = "cliphist list | fuzzel --dmenu --with-nth 2 | cliphist decode";
     yz = "yazi";

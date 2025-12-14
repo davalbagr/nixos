@@ -23,6 +23,7 @@ _: {
     };
     keys = {
       normal = {
+        space.space = "file_picker";
         x = "select_line_below";
         X = "select_line_above";
         C-y = [
