@@ -7,6 +7,7 @@ _: {
     enable_audio_bell = false;
   };
   extraConfig = ''
+    tab_bar_edge top
     map alt+1 goto_tab 1
     map alt+2 goto_tab 2
     map alt+3 goto_tab 3
