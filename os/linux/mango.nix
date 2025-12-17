@@ -80,7 +80,7 @@ in {
     exec-once=swaybg -i ${wallpaper}
     exec-once=dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=wlroots
     exec-once=dunst
-    exec-once=wlr-randr --output eDP-1 --custom-mode 2560x1440@120Hz --scale 1
+    exec-once=wlr-randr --output eDP-1 --custom-mode 1920x1080@120Hz --scale 1
 
     windowrule=appid:chromium-browser,tags:2,isopensilent:1
     windowrule=appid:discord,tags:3,isopensilent:1
