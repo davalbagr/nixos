@@ -8,6 +8,7 @@ _: {
   sessionVariables = {
     EDITOR = "hx";
     VISUAL = "hx";
+    PAGER  = "bat --decorations=never";
   };
 
   shellAliases = {
