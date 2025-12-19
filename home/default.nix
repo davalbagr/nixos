@@ -41,7 +41,6 @@ in
       [
         heroku
         postman
-        gh
         ffmpeg
         resvg
         poppler
