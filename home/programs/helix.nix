@@ -33,14 +33,6 @@ _: {
           ":open %sh{cat /tmp/unique-file}"
           ":redraw"
         ];
-        C-g = [
-          ":write-all"
-          ":new"
-          ":insert-output lazygit"
-          ":buffer-close!"
-          ":redraw"
-          ":reload-all"
-        ];
       };
     };
   };
