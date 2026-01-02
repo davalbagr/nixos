@@ -40,6 +40,7 @@ in
         devcontainer
         kakoune-lsp
         kak-tree-sitter
+        tree-sitter
       ]
       ++ (if pkgs.stdenv.system == "aarch64-linux" then [ slacky ] else [ slack ]);
   };
