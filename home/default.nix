@@ -28,14 +28,6 @@ in
     inherit username;
 
     stateVersion = "25.11";
-    pointerCursor = {
-      gtk.enable = pkgs.stdenv.isLinux;
-      x11.enable = true;
-      name = "BreezX-RosePine-Linux";
-      package = pkgs.rose-pine-cursor;
-      size = 24;
-    };
-
     packages =
       with pkgs;
       [
@@ -46,6 +38,7 @@ in
         poppler
         scooter
         devcontainer
+        kakoune-lsp
       ]
       ++ (if pkgs.stdenv.system == "aarch64-linux" then [ slacky ] else [ slack ]);
   };
@@ -61,19 +54,6 @@ in
 
   gtk = {
     enable = pkgs.stdenv.isLinux;
-    theme = {
-      name = "rose-pine-gtk";
-      package = pkgs.rose-pine-gtk-theme;
-    };
-    iconTheme = {
-      name = "rose-pine-icons";
-      package = pkgs.rose-pine-icon-theme;
-    };
-    cursorTheme = {
-      name = "BreezX-RosePine-Linux";
-      size = 24;
-      package = pkgs.rose-pine-cursor;
-    };
   };
 
   programs = importDir "programs";

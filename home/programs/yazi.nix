@@ -1,26 +1,27 @@
-{ pkgs, ... }:
+{pkgs, ...}:
 let
-  rosePineTheme = pkgs.fetchFromGitHub {
-    owner = "rose-pine";
-    repo = "yazi";
-    rev = "fd385266af5f3419657e449607f3e87f062d0d2e";
-    hash = "sha256-3j7TTtzG+GCB4uVeCiuvb/0dCkHPz7X+MDBVVUp646A=";
+  yaziFlavors = pkgs.fetchFromGitHub {
+    owner = "yazi-rs";
+    repo = "flavors";
+    rev = "9276ffacbfffe1f2d0fa9df9efef07f36896c353";
+    hash = "sha256-1IgX6R+0lPVl0r9WcyNkrvFzG6VaWgMklyOUHrxZ4Zg=";
   };
-
 in
 {
   enable = true;
   enableBashIntegration = true;
-  flavors.rose-pine = "${rosePineTheme}/flavors/rose-pine.yazi";
   settings = {
     mgr = {
       show_hidden = true;
     };
   };
-  theme = builtins.fromTOML (builtins.readFile "${rosePineTheme}/themes/rose-pine.toml") // {
+  flavors = {
+    catppuccin-mocha = "${yaziFlavors}/catppuccin-mocha.yazi/";
+  };
+  theme = {
     flavor = {
-      dark = "rose-pine";
-      light = "rose-pine";
+      dark = "catppuccin-mocha";
+      light = "catppuccin-mocha";
     };
   };
 }

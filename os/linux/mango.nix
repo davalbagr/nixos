@@ -86,7 +86,6 @@ in {
     windowrule=appid:discord,tags:3,isopensilent:1
     windowrule=appid:Slack,tags:4,isopensilent:1
 
-    cursor_theme=BreezX-RosePine-Linux
     cursor_size=24
     env=XCURSOR_SIZE,24
     env=GTK_IM_MODULE,fcitx

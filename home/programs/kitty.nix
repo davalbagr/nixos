@@ -2,9 +2,10 @@ _: {
   enable = true;
   enableGitIntegration = true;
   shellIntegration.enableBashIntegration = true;
-  themeFile = "rose-pine";
+  themeFile = "Catppuccin-Mocha";
   settings = {
     enable_audio_bell = false;
+    allow_remote_control = "yes";
   };
   extraConfig = ''
     tab_bar_edge top
