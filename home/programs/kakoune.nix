@@ -36,5 +36,19 @@
     set-face global StatusLineMode default,default
     set-face global StatusLineInfo default,default
     set-face global StatusLineValue default,default
+    set-face global PrimaryCursor      rgb:585b70,rgb:b4befe
+    set-face global SecondaryCursor    rgb:cdd6f4,rgb:6c7086
+    set-face global PrimaryCursorEol   rgb:585b70,rgb:b4befe
+    set-face global SecondaryCursorEol rgb:cdd6f4,rgb:6c7086
+
+    hook global ModeChange .*:insert %{
+        set-face window PrimaryCursor      rgb:11111b,rgb:f5e0dc
+        set-face window PrimaryCursorEol   rgb:11111b,rgb:f5e0dc
+    }
+
+    hook global ModeChange .*:normal %{
+        unset-face window PrimaryCursor
+        unset-face window PrimaryCursorEol
+    }
   '';
 }
