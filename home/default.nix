@@ -6,12 +6,6 @@
   ...
 }:
 let
-  treesitterGrammars = (pkgs.tree-sitter.withPlugins (p:
-      let 
-        all = pkgs.tree-sitter.builtGrammars;
-      in
-      builtins.attrValues (builtins.removeAttrs all [ "tree-sitter-razor" ])
-  ));
   importDir =
     type:
     pkgs.lib.attrsets.concatMapAttrs (name: value: {
@@ -21,7 +15,6 @@ let
           config
           username
           pkgs
-          treesitterGrammars
           ;
       };
     }) (builtins.readDir ./${type});
@@ -47,7 +40,6 @@ in
         devcontainer
         kakoune-lsp
         kak-tree-sitter
-        treesitterGrammars
       ]
       ++ (if pkgs.stdenv.system == "aarch64-linux" then [ slacky ] else [ slack ]);
   };
