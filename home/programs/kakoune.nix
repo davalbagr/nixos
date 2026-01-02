@@ -8,44 +8,9 @@
     set-option global indentwidth 2
     map -docstring "comment line" global user c ":comment-line<ret>"
     add-highlighter global/ number-lines -relative
-
-    define-command -docstring \
-    "Open Yazi in your kakoune's root directory" \
-    yazi-root %{
-        edit %sh{
-            output=/tmp/kak-yazi
-            rm -f $output
-
-            $kak_opt_termcmd "yazi --chooser-file $output"
-
-            if [ -s "$output" ]; then
-                cat "$output"
-            else
-                echo $kak_buffile
-            fi
-        }
-    }
-
-    define-command -docstring \
-    "Open Yazi in your current buffer's directory" \
-    yazi %{
-        edit %sh{
-            output=/tmp/kak-yazi
-            rm -f $output
-
-            cd "$(dirname "$kak_buffile")"
-            $kak_opt_termcmd "yazi --chooser-file $output"
-
-            if [ -s "$output" ]; then
-                cat "$output"
-            else
-                echo $kak_buffile
-            fi
-        }
-    }
-
-    map global user f ':yazi<ret>'
-    map global user F ':yazi-root<ret>'
+    map global user p '! wl-paste<ret>' -docstring 'paste after (system)'
+    map global user P '<a-!> wl-paste<ret>' -docstring 'paste before (system)'
+    map global user y '<a-|> wl-copy<ret>' -docstring 'yank to clipboard'
 
 		# LSP config
 
