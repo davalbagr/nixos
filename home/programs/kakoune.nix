@@ -1,8 +1,9 @@
-{pkgs, ...}: {
+{pkgs, treesitterGrammars, ...}: {
   enable = true;
   defaultEditor = true;
   colorSchemePackage = pkgs.kakounePlugins.kakoune-catppuccin;
   extraConfig = ''
+    eval %sh{ kak-tree-sitter -dksvv --init "''${kak_session}" --grammars ${treesitterGrammars} }
     colorscheme catppuccin_mocha
     set-option global tabstop 2
     set-option global indentwidth 2
