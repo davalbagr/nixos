@@ -3,6 +3,9 @@
   defaultEditor = true;
   extraConfig = ''
     eval %sh{ kak-tree-sitter -dksvv --init "''${kak_session}" }
+    eval %sh{ kcr init kakoune }
+    eval %sh{ kak-lsp }
+
     set-option global tabstop 2
     set-option global indentwidth 2
     map -docstring "comment line" global user c ":comment-line<ret>"
@@ -13,7 +16,6 @@
 
 		# LSP config
 
-    eval %sh{kak-lsp}
     lsp-enable
 
     map global user l ':enter-user-mode lsp<ret>' -docstring 'LSP mode'
@@ -31,6 +33,9 @@
     map global object d '<a-semicolon>lsp-diagnostic-object error warning<ret>' -docstring 'LSP errors and warnings'
     map global object D '<a-semicolon>lsp-diagnostic-object error<ret>' -docstring 'LSP errors'
     set-option global modelinefmt '%val{bufname}'
+
+    map global user f ':connect terminal kcr fzf files<ret>' -docstring 'FZF file'
+    map global user / ':connect terminal kcr fzf grep<ret>' -docstring 'FZF grep'
 
     # Colorscheme
 
