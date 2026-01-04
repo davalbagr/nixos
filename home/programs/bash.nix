@@ -28,6 +28,7 @@ _: {
   shellAliases = {
     lzd = "lazydocker";
     hrc = "heroku run console";
+    k = "kak";
     ls = "eza -lh --group-directories-first --icons";
     wl-fzf = "cliphist list | fuzzel --dmenu --with-nth 2 | cliphist decode";
     yz = "yazi";
