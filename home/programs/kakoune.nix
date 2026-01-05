@@ -1,9 +1,13 @@
 {pkgs, ...}: {
   enable = true;
   defaultEditor = true;
+  plugins = with pkgs.kakounePlugins;[
+    byline-kak
+  ];
   extraConfig = ''
     eval %sh{ kak-tree-sitter -dksvv --init "''${kak_session}" }
     eval %sh{ kak-lsp }
+    require-module "byline"
 
     set-option global tabstop 2
     set-option global indentwidth 2
