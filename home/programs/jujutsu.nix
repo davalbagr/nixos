@@ -9,7 +9,7 @@ _: {
     signing = {
       behaviour = "own";
       backend = "ssh";
-      key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKEX4YOOt2sClE5+4Rio++bhyeKywJoAlbLXlgrOfUFl davidaagra@gmail.com";
+      key = "~/.ssh/id_ed25519.pub";
     };
     remotes.origin = {
       auto-track-bookmarks = "da/*";

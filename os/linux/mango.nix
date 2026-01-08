@@ -74,7 +74,7 @@ in {
     animations=0
     enable_hotarea=0
 
-    exec-once=chromium --new-window --app="https://discord.com/channels/@me"
+    exec-once=brave --new-window --app="https://discord.com/channels/@me"
     exec-once=slack
     exec-once=wl-paste --watch cliphist store
     exec-once=swaybg -i ${wallpaper}
@@ -82,7 +82,7 @@ in {
     exec-once=dunst
     exec-once=wlr-randr --output eDP-1 --custom-mode 1920x1080@120Hz --scale 1
 
-    windowrule=appid:chromium-browser,tags:2,isopensilent:1
+    windowrule=appid:brave,tags:2,isopensilent:1
     windowrule=appid:discord,tags:3,isopensilent:1
     windowrule=appid:Slack,tags:4,isopensilent:1
 

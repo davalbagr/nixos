@@ -66,7 +66,7 @@ in
 
   xdg.desktopEntries.discord = {
     name = "Discord";
-    exec = ''chromium --new-window --app="https://discord.com/channels/@me"'';
+    exec = ''brave --new-window --app="https://discord.com/channels/@me"'';
     terminal = false;
     type = "Application";
   };

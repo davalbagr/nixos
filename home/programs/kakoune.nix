@@ -17,6 +17,17 @@
     map global user P '<a-!> wl-paste<ret>' -docstring 'paste before (system)'
     map global user y '<a-|> wl-copy<ret>' -docstring 'yank to clipboard'
 
+    define-command find-file -docstring "Find a file to open" -params .. %{
+        terminal sk -c "fd -tf %arg{@}" --bind %exp{enter:execute(echo eval -verbatim -client %val{client} edit '"{}"' | kak -p %val{session})+abort}
+    }
+
+    define-command find-grep -docstring "Find a file to open (Grep)" -params .. %{
+        terminal sk --ansi -c 'rg "{}" --color=always --line-number' --bind %exp{enter:execute(echo eval -verbatim -client %val{client} edit '"{}"' | kak -p %val{session})+abort}
+    }
+
+    map global user f ':find-file<ret>' -docstring "Find a file to open"
+    map global user / ':find-grep<ret>' -docstring "Find a file to open (Grep)"
+
 		# LSP config
 
     lsp-enable
