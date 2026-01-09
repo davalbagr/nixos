@@ -18,11 +18,16 @@
     map global user y '<a-|> wl-copy<ret>' -docstring 'yank to clipboard'
 
     define-command find-file -docstring "Find a file to open" -params .. %{
-        terminal sk -c "fd -tf %arg{@}" --bind %exp{enter:execute(echo eval -verbatim -client %val{client} edit '"{}"' | kak -p %val{session})+abort}
+        terminal sk --color=fg:#cdd6f4,bg:#1e1e2e,matched:#313244,matched_bg:#f2cdcd,current:#cdd6f4,current_bg:#45475a,current_match:#1e1e2e,current_match_bg:#f5e0dc,spinner:#a6e3a1,info:#cba6f7,prompt:#89b4fa,cursor:#f38ba8,selected:#eba0ac,header:#94e2d5,border:#6c7086" \
+        -c "fd -tf %arg{@}" \
+        --bind %exp{enter:execute(echo eval -verbatim -client %val{client} edit -existing '"{}"' | kak -p %val{session})+abort}
     }
 
     define-command find-grep -docstring "Find a file to open (Grep)" -params .. %{
-        terminal sk --ansi -c 'rg "{}" --color=always --line-number' --bind %exp{enter:execute(echo eval -verbatim -client %val{client} edit '"{}"' | kak -p %val{session})+abort}
+        terminal sk --color=fg:#cdd6f4,bg:#1e1e2e,matched:#313244,matched_bg:#f2cdcd,current:#cdd6f4,current_bg:#45475a,current_match:#1e1e2e,current_match_bg:#f5e0dc,spinner:#a6e3a1,info:#cba6f7,prompt:#89b4fa,cursor:#f38ba8,selected:#eba0ac,header:#94e2d5,border:#6c7086" \
+        --ansi -i -c 'rg "{}" --color=always --line-number --column' --delimiter ":" --with-nth 1 \
+        --preview 'bat -n --color=always --style=numbers,header,grid --highlight-line {2} {1}' \
+        --bind %exp{enter:execute(echo eval -verbatim -client %val{client} edit -existing '"{1}"' | kak -p %val{session})+abort}
     }
 
     map global user f ':find-file<ret>' -docstring "Find a file to open"

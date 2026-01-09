@@ -14,6 +14,7 @@ _: {
   shellAliases = {
     lzd = "lazydocker";
     hrc = "heroku run console";
+    sk-grep = ''sk --ansi -i -c 'rg "{}" --color=always --line-number --column' --delimiter ":" --with-nth 1 --nth 1 --preview 'bat -n --color=always --style=numbers --highlight-line {2} {1}' '';
     k = "kak";
     oc = "opencode";
     ls = "eza -lh --group-directories-first --icons";
