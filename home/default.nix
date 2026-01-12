@@ -22,28 +22,26 @@ in
 {
   imports = [
     inputs.mango.hmModules.mango
+    inputs.zen-browser.homeModules.twilight
   ];
 
   home = {
     inherit username;
 
     stateVersion = "25.11";
-    packages =
-      with pkgs;
-      [
-        heroku
-        postman
-        ffmpeg
-        resvg
-        poppler
-        scooter
-        devcontainer
-        tree-sitter
+    packages = with pkgs; [
+      heroku
+      postman
+      ffmpeg
+      resvg
+      poppler
+      scooter
+      devcontainer
+      tree-sitter
 
-        kakoune-lsp
-        kak-tree-sitter
-      ]
-      ++ (if pkgs.stdenv.system == "aarch64-linux" then [ slacky ] else [ slack ]);
+      kakoune-lsp
+      kak-tree-sitter
+    ];
   };
 
   fonts.fontconfig = {
@@ -63,11 +61,4 @@ in
   services = importDir "services";
 
   wayland.windowManager.mango = import ../os/linux/mango.nix { inherit pkgs inputs; };
-
-  xdg.desktopEntries.discord = {
-    name = "Discord";
-    exec = ''brave --new-window --app="https://discord.com/channels/@me"'';
-    terminal = false;
-    type = "Application";
-  };
 }
