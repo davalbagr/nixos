@@ -35,12 +35,7 @@ in
       ffmpeg
       resvg
       poppler
-      scooter
       devcontainer
-      tree-sitter
-
-      kakoune-lsp
-      kak-tree-sitter
     ];
   };
 
