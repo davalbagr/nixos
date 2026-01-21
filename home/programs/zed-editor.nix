@@ -15,6 +15,9 @@
     title_bar = {
       show_sign_in = false;
     };
+    project_panel = {
+      dock = "right";
+    };
     context_servers = {
       mcp-server-shopify-dev = {
         enabled = true;
