@@ -74,17 +74,13 @@ in {
     animations=0
     enable_hotarea=0
 
-    exec-once=zen
     exec-once=kitty
     exec-once=wl-paste --watch cliphist store
     exec-once=swaybg -i ${wallpaper}
     exec-once=dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=wlroots
     exec-once=dunst
-    exec-once=wlr-randr --output eDP-1 --custom-mode 1920x1080@120Hz --scale 1
-
-    windowrule=appid:zen,tags:3,isopensilent:1
-    windowrule=appid:kitty,tags:1,isopensilent:1
-    windowrule=appid:zed,tags:2,isopensilent:1
+    exec-once=wlr-randr --output eDP-1 --custom-mode 2560x1440@100Hz --scale 1
+    exec-once=wlr-randr --output HDMI-A-1 --custom-mode 2560x1440@100Hz --scale 1
 
     cursor_size=24
     env=XCURSOR_SIZE,24

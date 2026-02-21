@@ -23,12 +23,13 @@ in
   imports = [
     inputs.mango.hmModules.mango
     inputs.zen-browser.homeModules.twilight
+    inputs.nvf.homeManagerModules.nvf
   ];
 
   home = {
     inherit username;
 
-    stateVersion = "25.11";
+    stateVersion = "26.05";
     packages = with pkgs; [
       heroku
       postman

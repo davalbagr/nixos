@@ -2,6 +2,6 @@ _: {
   enable = true;
   settings = {
     theme = "catppuccin";
-    model = "openai/gpt-5.2";
+    model = "openai/gpt-5.3";
   };
 }
