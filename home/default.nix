@@ -36,6 +36,7 @@ in
       resvg
       poppler
       devcontainer
+      watchman
     ];
   };
 

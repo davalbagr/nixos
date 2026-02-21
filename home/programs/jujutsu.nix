@@ -2,6 +2,7 @@ _: {
   enable = true;
   settings = {
     ui.default-command = "log";
+    fsmonitor.backend = "watchman";
     user = {
       email = "davidaagra@gmail.com";
       name = "davalbagr";
