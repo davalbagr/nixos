@@ -7,6 +7,8 @@ _: {
 
   sessionVariables = {
     PAGER  = "bat --decorations=never";
+    EDITOR = "nvim";
+    VISUAL = "nvim";
   };
 
   shellAliases = {

@@ -82,6 +82,9 @@ in {
     exec-once=wlr-randr --output eDP-1 --custom-mode 2560x1440@100Hz --scale 1
     exec-once=wlr-randr --output HDMI-A-1 --custom-mode 2560x1440@100Hz --scale 1
 
+    monitorrule=name:eDP-1,width:2560,height:1440,refresh:100,x:0,y:0
+    monitorrule=name:HDMI-A-1,width:2560,height:1440,refresh:100,x:0,y:0
+
     cursor_size=24
     env=XCURSOR_SIZE,24
     env=GTK_IM_MODULE,fcitx
