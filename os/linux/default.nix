@@ -105,6 +105,7 @@
         STOP_CHARGE_THRESH_BAT0 = 80;
       };
     };
+    gnome.gnome-keyring.enable = true;
   };
 
   home-manager = {
@@ -147,6 +148,7 @@
       cliphist
       satty
       wlr-randr
+      gcr
     ];
   };
 

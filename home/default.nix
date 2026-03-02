@@ -32,12 +32,13 @@ in
     stateVersion = "26.05";
     packages = with pkgs; [
       heroku
-      postman
+      hurl
       ffmpeg
       resvg
       poppler
       devcontainer
       watchman
+      anytype
     ];
   };
 

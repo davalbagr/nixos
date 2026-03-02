@@ -19,6 +19,8 @@
       icons.enable = true;
     };
 
+    autocomplete.blink-cmp.enable = true;
+
     languages = import ../nvim/languages.nix { };
     options = import ../nvim/options.nix { };
     inherit (import ../nvim/keymaps.nix { }) keymaps;
