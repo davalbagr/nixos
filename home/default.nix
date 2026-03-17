@@ -32,7 +32,7 @@ in
     stateVersion = "26.05";
     packages = with pkgs; [
       heroku
-      hurl
+      httpie
       ffmpeg
       resvg
       poppler
