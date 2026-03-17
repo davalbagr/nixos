@@ -74,7 +74,7 @@ in {
     animations=0
     enable_hotarea=0
 
-    exec-once=kitty
+    exec-once=wezterm
     exec-once=wl-paste --watch cliphist store
     exec-once=swaybg -i ${wallpaper}
     exec-once=dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=wlroots
